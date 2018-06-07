@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: paper.aux
+Case mismatch error between cite keys Gao and gao
+---line 20 of file paper.aux
+ : \citation{Gao
+ :              }
+I'm skipping whatever remains of this command
+The style file: plain.bst
+Database file #1: paper.bib
+Warning--I didn't find a database entry for "bgpstream"
+Warning--I didn't find a database entry for "traceroute"
+Warning--I didn't find a database entry for "FOTN"
+Warning--I didn't find a database entry for "OONI"
+Warning--to sort, need author or key in CAIDA
+You've used 7 entries,
+            2118 wiz_defined-function locations,
+            548 strings with 5322 characters,
+and the built_in function-call counts, 2898 in all, are:
+= -- 304
+> -- 113
+< -- 4
++ -- 46
+- -- 38
+* -- 189
+:= -- 432
+add.period$ -- 24
+call.type$ -- 7
+change.case$ -- 39
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 121
+empty$ -- 240
+format.name$ -- 38
+if$ -- 650
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 6
+newline$ -- 37
+num.names$ -- 12
+pop$ -- 52
+preamble$ -- 1
+purify$ -- 32
+quote$ -- 0
+skip$ -- 95
+stack$ -- 0
+substring$ -- 208
+swap$ -- 47
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 1
+while$ -- 28
+width$ -- 8
+write$ -- 79
+(There was 1 error message)

@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{CAIDA}
+Caida as relationships.
+\newblock http://data.caida.org/datasets/as-relationships/.
+
+\bibitem{throats}
+HB~Acharya, Sambuddho Chakravarty, and Devashish Gosain.
+\newblock Few throats to choke: On the current structure of the internet.
+\newblock In {\em Local Computer Networks (LCN), 2017 IEEE 42nd Conference on},
+  pages 339--346. IEEE, 2017.
+
+\bibitem{gao}
+Lixin Gao.
+\newblock On inferring autonomous system relationships in the internet.
+\newblock {\em IEEE/ACM Transactions on networking}, 9(6):733--745, 2001.
+
+\bibitem{quicksand}
+Phillipa Gill, Michael Schapira, and Sharon Goldberg.
+\newblock Modeling on quicksand: dealing with the scarcity of ground truth in
+  interdomain routing data.
+\newblock {\em ACM SIGCOMM Computer Communication Review}, 42(1):40--46, 2012.
+
+\bibitem{decoy}
+Devashish Gosain, Anshika Agarwal, Sambuddho Chakravarty, and HB~Acharya.
+\newblock The devil's in the details: Placing decoy routers in the internet.
+\newblock In {\em Proceedings of the 33rd Annual Computer Security Applications
+  Conference}, pages 577--589. ACM, 2017.
+
+\bibitem{CAIDApaper}
+Matthew Luckie, Bradley Huffaker, Amogh Dhamdhere, Vasileios Giotsas, et~al.
+\newblock As relationships, customer cones, and validation.
+\newblock In {\em Proceedings of the 2013 conference on Internet measurement
+  conference}, pages 243--256. ACM, 2013.
+
+\bibitem{chinafiltering}
+Xueyang Xu, Z~Morley Mao, and J~Alex Halderman.
+\newblock Internet censorship in china: Where does the filtering occur?
+\newblock In {\em International Conference on Passive and Active Network
+  Measurement}, pages 133--142. Springer, 2011.
+
+\end{thebibliography}
