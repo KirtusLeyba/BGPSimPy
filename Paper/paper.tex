@@ -31,19 +31,26 @@ understand the dynamics of Internet topology and to interpret how that
 topology may enable nations to enact censorship, surveillance, or other
 Internet control measures. Unfortunately datasets of these paths are not
 generally made publicly available, and paths collected from measurements such as
-traceroute measurements or BGP probes tend to be incomplete. Simulation
+traceroute or BGP probes tend to be incomplete. Simulation
 frameworks have been used to generate AS paths based on empirical AS graphs.
-We have reimplemented one such framework, BGPSim \cite{quicksand} in Python as
+We have reimplemented and extended one such framework, BGPSim \cite{quicksand} in Python as
 an efficient, open source BGP path simulation tool called BGPSimPy. With this
 tool we produced publicly available routing tree datasets that will enable
-future research on AS level topology. Previous research endeavors in this
+future research on AS level topology. We introduce a metric, \textit{chokepoint potential},
+in order to use routing trees to interpret the capability for border ASes (those one hop away from
+an AS in a different nation) to enact censorship or surveillance. With the entire set of
+routing trees we demonstrate that we can expose the choke points of AS-level routing for
+any nation. Previous research endeavors in this
 direction have only identified chokepoints in single snapshots. We apply the
 path simulation and routing tree datasets to view snapshots of the Internet
 over multiple years in order to introduce a new technique to investigate the
-evolution of the complex and dynamic AS level Internet topology. As an
+evolution of the complex and dynamic AS level Internet topology. Through this approach we
+can more carefully evaluate the state of the Internet than was previously possible. As an
 application of the routing trees we compare multiple qualitative sources of
 Internet freedom and censorship with chokepoint metrics in order to interpret
-the relationship between AS level topology and actual censorship activity.
+the relationship between AS level topology and actual censorship activity, providing
+illustration of new ways to monitor which governments can easily control the flow of 
+information in their nations.
 
 \section{Related Work}
 The primary struggle facing Internet topology researchers is
@@ -67,8 +74,12 @@ order to identify chokepoints in the AS graph, it is necessary to determine
 the paths that Internet traffic follows. Researchers either use a measurement
 tool like traceroute or BGP AS-path announcement data to determine AS paths.
 These techniques have been shown to yield an incomplete and innacurate set of
-paths {\color{blue}cite?}. It is also important that paths from all ASes be utilized to
-get a complete picture of Internet topology. One technique for generating such
+paths {\color{blue}cite?}. 
+\par
+In light of these issues, BGP researchers often employ more abstract models of BGP.
+For instance, the authors in \cite{converge} developed a simplification of BGP in order
+to estimate important convergence properties. In order to evaluate Internet chokepoints,
+an accurate set of paths between all AS pairs must generated. One technique for generating such
 a set of paths was developed by Gill et al. in \cite{quicksand}. The algorithm
 developed in \cite{quicksand}, called BGPSim, uses a modified breadth-first
 search on an AS graph with defined relationships, as in from the CAIDA
@@ -77,7 +88,7 @@ node, and the search traverses edges according to priorities related to the
 relationships defined by Gao. The priorities, in the order they are integrated
 into the algorithm, are: Shortest Path (SP), Local Preference (LP), and Tie-
 break (TB). The resultant paths are ideal according to economic concerns of AS
-admins.     
+administrators.     
 \par
 Previous studies have used BGP path models to find ASes that
 intercept a high fraction of paths. One such project in \cite{throats}
@@ -120,6 +131,20 @@ censorship or decentralized censorship more common? Instead of directly
 identifying censorship devices on the AS graph, we instead quantify the
 chokepoint potential of ASes on the national level, and then compare that with
 qualitative Internet freedom measures and empirical censorship events.
+\par
+We are not the first to investigate the relationship between Internet freedom and
+AS-level topology. Similar techniques have been used to classify nations according
+to the connectivity of their ASes \cite{politicsrouting}. This has only been done for a
+single moment in time, however, making the results limited in terms of stability and predictability.
+Additionaly, previous work has not used country level chokepoints as the link between Internet topology
+and censorship or surveillance practices. The work in \cite{politicsrouting} chose to relate Internet topology
+to the Freedom of the Press measure from freedom house instead of the Freedom On The Net score. They chose to do this
+to include more nations. Additionally, they didn't include the United States and Russia in their experiments because they were
+outliers in regards to their topologies. Through our approach we hope to extend this previous work by finding an interesting metric for
+understanding the dynamics of all nations, as well as targeting our results more specifically to Internet freedom by using the Freedom On
+The Net score as our metric for Internet freedom. Through our techniques, we provide a simple metric that not only 
+sheds light on the relationship between topology and Internet freedom, but reveals currently free
+nations that could easily implement censorship if their governments decided to.
 
 \section{BGPSimPy}
 In order to conduct an analysis on AS level topology, the paths
@@ -139,7 +164,7 @@ relationship dataset \cite{CAIDA}. BGPSim outputs routing trees, which contain
 all paths from leaf ASes to the root AS, for each AS in the AS graph. The
 routes are selected using a modified breadth-first search that selects with
 the following priorities: shortest path, local preference (using the rules
-from Gao \cite{Gao}), and finally tie break of all equally good paths. With
+from Gao \cite{gao}), and finally tie break of all equally good paths. With
 these priorities, BGPSim generates a realistic collection of AS level paths,
 which are ideal for use in Internet topology studies.
 \par 
@@ -167,9 +192,24 @@ censorship.
 
 \section{Applications of Routing Trees}
 \subsection{Measuring Chokepoints in AS-level Paths}
-Once we generated routing trees, we
-could use the paths to identify chokepoints, or ASes that intercept large
-portions of paths, on the AS graph. Specifically, we chose to evaluate border
+
+It is well documented that the AS graph is composed of a hierarchy of ASes, such that the ASes
+distributed in tiers. This tier list includes a very small set of tier-1 ASes
+that are able to provide the highest levels of connectivity to the rest of the Internet \cite{hierarchy}.
+This hierarchy is generally viewed in a way agnostic to national boundaries. It is
+possible, however, that more ASes exhibit potential to control information flow in the sense that
+chokepoints can exist at the national level. While these chokepoints might not provide extensive connectivity
+to the entire set of ASes, they may provide similar connectivity to the interior ASes of a particular nation. 
+Thus, a technique to conduct a fine-grained analysis of the number of paths intercepted by ASes that provide access
+in and out of nations is a worthwhile pursuit. Previous works have also not provided an analysis of the development of
+the AS hierarchy over time. The monitoring of national chokepoints over time is relevant to predicting the stability of the
+future Internet, identifying key censorship bottlenecks, and understanding the potential for national governments to conduct
+surveillance on foreign traffic.
+
+\par
+
+Once we generated routing trees using BGPSimPy, we
+used the paths to identify national chokepoints. Specifically, we chose to evaluate border
 ASes, or ASes that could reach an AS registered to a different nation with one
 hop. By selecting border ASes we could locate the ASes that intercepted
 traffic into a nation (via out-to-in paths), as in a foreign attempt to access
@@ -177,22 +217,29 @@ a domestic website, or ASes that intercepted traffic out of a nation, as in a
 domestic attempt to access a foreign website (via in-to-out paths). We choose
 to make a distinction between these two path types to better understand the
 implications of the chokepoints belonging to each nation.
+
 \par To evaluate border ASes we use the metric of chokepont potential, defined here to be the
-ratio of the number of paths intercepted by a border AS to the number of paths
-for that nation, as shown in equation \ref{eqn:chokePointPotential}. This
-metric is calculated separately for both in-to-out paths and out-to-in paths.
+ratio of the number of paths intercepted by a border AS to the number of total path interceptions
+possible for that nation. If $P_c$ is the set of all paths (either in-to-out or out-to-in) belonging to nation $c$ and 
+$B_p$ is the set of all border nodes within a path $p$, the chokepoint potential for a border node $b$ is defined in equation \ref{eqn:chokePointPotential}
+This metric is calculated separately for both in-to-out paths and out-to-in paths.
 This calculation is performed by traversing the routing trees and keeping
 record of which border nodes intercept each path, as well as what path type is
 currently being traversed with regards to the host nation of the border AS in
 question. Once all paths are traversed, the totals are compiled together, with
 a chokepoint potential value stored for each border AS.
+
+\begin{equation}\label{eqn:chokePointPotential}
+CP_b = \frac{|\{p \in P_c \textrm{ s.t. } \{b\} \subseteq B_p\}|}{\sum_{p \in P_c}|B_p|}
+\end{equation}
+
 \par 
 The chokepoint potentials of the border ASes allowed us to investigate the state of the AS-
 level topology of the Internet for any given set of initial AS relationships.
 We first looked at how many ASes each nation is required to control to
 intercept a percentage of paths. For this test, we chose 90\%, as this would
 indicate a clear control of Internet paths for the given country and was also
-the percentage used in \cite{throats}. Additionally, we determined this value
+the percentage used in past studies \cite{throats}. Additionally, we determined this value
 for each nation for multiple timestamps, yielding our initial picture of the
 evolution of Internet topology. The results of this test for some nations of
 interest are shown in figure \ref{fig:NumToIntercept}.
@@ -260,7 +307,7 @@ recent. These results are depicted in \ref{fig:chokepoint}.
 The variation between the different nations highlights the importance of measuring
 chokepoints on the national level. Trends exist within a nation, but nations
 tend to have surprisingly unique AS graph dynamics. China shows a striking
-increase in chokepoint potential. In order to control 90% of paths, China has
+increase in chokepoint potential. In order to control 90\% of paths, China has
 to utilize a strikingly few number of ASes. This suggests an ever
 strengthening backbone in the Chinese Internet. Conversely, the trend that
 Brazil's capability to intercept paths is decreasing is also evident in these
@@ -272,12 +319,11 @@ when it becomes easier to control many paths, it becomes more difficult to
 control all paths. {\color{blue}Not sure of implications, needs work here}
 
 \subsection{Comparing Internet Topology with Freedom On The Net}
-While research in the past \cite{throats} has connected AS-level chokepoints with the capability of
-a nation to conduct censorship, linking the topology based measurements to
-other attempts at measuring Internet freedom has not been done before to the
-best of our knowledge. Such a connection would bridge the gap between a
-dynamic system driven by many factors, both automatic and instituted, and
-qualitative classification of nations.
+While research in the past has connected AS-level topology with Internet freedom 
+and censorship \cite{throats}\cite{politicsrouting}, the evolution of this relationship has
+not been investigated across multiple years. We also provide the first attempt to connect the
+metric of chokepoint potential with the Internet freedom of nations, creating insight into the
+connection between the state of Internet topology and efforts to limit Internet freedoms.
 \par Freedom House's Freedom On The Net
 (FOTN) report \cite{FOTN}, is an annual ranking and analysis of Internet
 freedom, interpreted from multiple measures including obstacles to access,
@@ -402,4 +448,4 @@ the layout of their AS relationships.
 \bibliographystyle{plain}
 \bibliography{paper}
 
-\end{document}
+\end{document}\grid

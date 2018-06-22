@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{CAIDA}
 Caida as relationships.
@@ -27,11 +27,33 @@ Devashish Gosain, Anshika Agarwal, Sambuddho Chakravarty, and HB~Acharya.
 \newblock In {\em Proceedings of the 33rd Annual Computer Security Applications
   Conference}, pages 577--589. ACM, 2017.
 
+\bibitem{converge}
+Timothy~G Griffin and Gordon Wilfong.
+\newblock An analysis of bgp convergence properties.
+\newblock {\em ACM SIGCOMM Computer Communication Review}, 29(4):277--288,
+  1999.
+
 \bibitem{CAIDApaper}
 Matthew Luckie, Bradley Huffaker, Amogh Dhamdhere, Vasileios Giotsas, et~al.
 \newblock As relationships, customer cones, and validation.
 \newblock In {\em Proceedings of the 2013 conference on Internet measurement
   conference}, pages 243--256. ACM, 2013.
+
+\bibitem{politicsrouting}
+Rachee Singh, Hyungjoon Koo, Najmehalsadat Miramirkhani, Fahimeh Mirhaj,
+  Phillipa Gill, and Leman Akoglu.
+\newblock The politics of routing: Investigating the relationship between {AS}
+  connectivity and internet freedom.
+\newblock In {\em 6th {USENIX} Workshop on Free and Open Communications on the
+  Internet ({FOCI} 16)}, Austin, TX, 2016. {USENIX} Association.
+
+\bibitem{hierarchy}
+Lakshminarayanan Subramanian, Sharad Agarwal, Jennifer Rexford, and Randy~H
+  Katz.
+\newblock Characterizing the internet hierarchy from multiple vantage points.
+\newblock In {\em INFOCOM 2002. Twenty-First Annual Joint Conference of the
+  IEEE Computer and Communications Societies. Proceedings. IEEE}, volume~2,
+  pages 618--627. IEEE, 2002.
 
 \bibitem{chinafiltering}
 Xueyang Xu, Z~Morley Mao, and J~Alex Halderman.
