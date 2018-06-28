@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.29)  20 JUN 2018 18:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.29)  28 JUN 2018 11:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -164,18 +164,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ) (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -271,160 +271,119 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 33.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 33.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 33.
+
+LaTeX Warning: No \author given.
+
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: Citation `bgpstream' on page 2 undefined on input line 154.
+LaTeX Warning: Citation `BGPStream' on page 2 undefined on input line 120.
 
 
-LaTeX Warning: Citation `traceroute' on page 2 undefined on input line 154.
+LaTeX Warning: Citation `traceroute' on page 2 undefined on input line 120.
 
-[2]
+<./images/chokepoint.png, id=10, 602.25pt x 451.6875pt>
+File: ./images/chokepoint.png Graphic file (type png)
+
+<use ./images/chokepoint.png>
+Package pdftex.def Info: ./images/chokepoint.png used on input line 143.
+(pdftex.def)             Requested size: 236.84842pt x 177.63922pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 223.
+(Font)              <7> on input line 147.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 223.
- <./images/NodesNeeded.png, id=13, 462.528pt x 346.896pt>
-File: ./images/NodesNeeded.png Graphic file (type png)
-
-<use ./images/NodesNeeded.png>
-Package pdftex.def Info: ./images/NodesNeeded.png used on input line 249.
-(pdftex.def)             Requested size: 236.84842pt x 177.63977pt.
-
-<./images/single_AU.png, id=15, 462.528pt x 346.896pt>
-File: ./images/single_AU.png Graphic file (type png)
-
-<use ./images/single_AU.png>
-Package pdftex.def Info: ./images/single_AU.png used on input line 278.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
-
-<./images/single_BR.png, id=16, 462.528pt x 346.896pt>
-File: ./images/single_BR.png Graphic file (type png)
-
-<use ./images/single_BR.png>
-Package pdftex.def Info: ./images/single_BR.png used on input line 281.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
-
-<./images/single_CN.png, id=17, 462.528pt x 346.896pt>
+(Font)              <5> on input line 147.
+ [2 <./images/chokepoint.png>]
+<./images/single_CN.png, id=22, 462.528pt x 346.896pt>
 File: ./images/single_CN.png Graphic file (type png)
 
 <use ./images/single_CN.png>
-Package pdftex.def Info: ./images/single_CN.png used on input line 285.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
-
-<./images/single_DE.png, id=18, 462.528pt x 346.896pt>
-File: ./images/single_DE.png Graphic file (type png)
-
-<use ./images/single_DE.png>
-Package pdftex.def Info: ./images/single_DE.png used on input line 288.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
-
-<./images/single_GB.png, id=19, 462.528pt x 346.896pt>
-File: ./images/single_GB.png Graphic file (type png)
-
-<use ./images/single_GB.png>
-Package pdftex.def Info: ./images/single_GB.png used on input line 292.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
-
-<./images/single_IR.png, id=20, 462.528pt x 346.896pt>
-File: ./images/single_IR.png Graphic file (type png)
-
-<use ./images/single_IR.png>
-Package pdftex.def Info: ./images/single_IR.png used on input line 295.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
-
-<./images/single_US.png, id=21, 462.528pt x 346.896pt>
+Package pdftex.def Info: ./images/single_CN.png used on input line 235.
+(pdftex.def)             Requested size: 236.84842pt x 177.63977pt.
+ [3]
+<./images/single_US.png, id=27, 462.528pt x 346.896pt>
 File: ./images/single_US.png Graphic file (type png)
 
 <use ./images/single_US.png>
-Package pdftex.def Info: ./images/single_US.png used on input line 299.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
- [3 <./images/NodesNeeded.png>] [4 <./images/single_AU.png> <./images/single_BR
-.png> <./images/single_CN.png> <./images/single_DE.png> <./images/single_GB.png
-> <./images/single_IR.png> <./images/single_US.png>]
+Package pdftex.def Info: ./images/single_US.png used on input line 241.
+(pdftex.def)             Requested size: 236.84842pt x 177.63977pt.
 
-LaTeX Warning: Citation `FOTN' on page 5 undefined on input line 328.
+<./images/single_DE.png, id=28, 462.528pt x 346.896pt>
+File: ./images/single_DE.png Graphic file (type png)
 
-<./images/fotn2012.png, id=42, 462.528pt x 346.896pt>
-File: ./images/fotn2012.png Graphic file (type png)
+<use ./images/single_DE.png>
+Package pdftex.def Info: ./images/single_DE.png used on input line 267.
+(pdftex.def)             Requested size: 236.84842pt x 177.63977pt.
 
-<use ./images/fotn2012.png>
-Package pdftex.def Info: ./images/fotn2012.png used on input line 345.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
+<./images/NodesNeeded.png, id=29, 462.528pt x 346.896pt>
+File: ./images/NodesNeeded.png Graphic file (type png)
 
-<./images/fotn2015.png, id=43, 462.528pt x 346.896pt>
-File: ./images/fotn2015.png Graphic file (type png)
-
-<use ./images/fotn2015.png>
-Package pdftex.def Info: ./images/fotn2015.png used on input line 348.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
-
-<./images/fotn2016.png, id=44, 462.528pt x 346.896pt>
-File: ./images/fotn2016.png Graphic file (type png)
-
-<use ./images/fotn2016.png>
-Package pdftex.def Info: ./images/fotn2016.png used on input line 352.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
-
-<./images/fotn2017.png, id=45, 462.528pt x 346.896pt>
+<use ./images/NodesNeeded.png>
+Package pdftex.def Info: ./images/NodesNeeded.png used on input line 277.
+(pdftex.def)             Requested size: 236.84842pt x 177.63977pt.
+ [4 <./images/single_CN.png> <./images/single_US.png> <./images/single_DE.png> 
+<./images/NodesNeeded.png>]
+<./images/fotn2017.png, id=37, 462.528pt x 346.896pt>
 File: ./images/fotn2017.png Graphic file (type png)
 
 <use ./images/fotn2017.png>
-Package pdftex.def Info: ./images/fotn2017.png used on input line 355.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
+Package pdftex.def Info: ./images/fotn2017.png used on input line 296.
+(pdftex.def)             Requested size: 236.84842pt x 177.63977pt.
+ [5 <./images/fotn2017.png>] (./paper.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 4--6
+[]\OT1/cmr/m/n/10 Caida as re-la-tion-ships.
+ []
 
 
-LaTeX Warning: Citation `OONI' on page 5 undefined on input line 381.
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
+[]\OT1/cmr/m/n/10 Freedom on the net 2017.
+ []
 
-<./images/all_09.png, id=46, 462.528pt x 346.896pt>
-File: ./images/all_09.png Graphic file (type png)
- <use ./images/all_09.png>
-Package pdftex.def Info: ./images/all_09.png used on input line 413.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
 
-<./images/dns_09.png, id=47, 462.528pt x 346.896pt>
-File: ./images/dns_09.png Graphic file (type png)
- <use ./images/dns_09.png>
-Package pdftex.def Info: ./images/dns_09.png used on input line 416.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
+Overfull \hbox (79.57457pt too wide) in paragraph at lines 8--10
+\OT1/cmr/m/n/10 https://freedomhouse.org/sites/default/files/FOTN[]2017[]Final.
+pdf. 
+ []
 
-<./images/http_diff_09.png, id=48, 462.528pt x 346.896pt>
-File: ./images/http_diff_09.png Graphic file (type png)
 
-<use ./images/http_diff_09.png>
-Package pdftex.def Info: ./images/http_diff_09.png used on input line 420.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
+Underfull \hbox (badness 5985) in paragraph at lines 12--14
+[]\OT1/cmr/m/n/10 International telecom-mu-ni-ca-tion union in-ter-
+ []
 
-<./images/http_fail_09.png, id=49, 462.528pt x 346.896pt>
-File: ./images/http_fail_09.png Graphic file (type png)
 
-<use ./images/http_fail_09.png>
-Package pdftex.def Info: ./images/http_fail_09.png used on input line 423.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
+Underfull \hbox (badness 5331) in paragraph at lines 12--14
+\OT1/cmr/m/n/10 net statis-tics.  https://www.itu.int/en/ITU-
+ []
 
-<./images/tcp_09.png, id=50, 462.528pt x 346.896pt>
-File: ./images/tcp_09.png Graphic file (type png)
- <use ./images/tcp_09.png>
-Package pdftex.def Info: ./images/tcp_09.png used on input line 427.
-(pdftex.def)             Requested size: 193.47577pt x 145.10777pt.
 
-(./paper.bbl [5] [6 <./images/fotn2012.png> <./images/fotn2015.png> <./images/f
-otn2016.png> <./images/fotn2017.png>] [7 <./images/all_09.png> <./images/dns_09
-.png> <./images/http_diff_09.png> <./images/http_fail_09.png> <./images/tcp_09.
-png>]) [8] (./paper.aux)
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+[]\OT1/cmr/m/n/10 Ip-asn map-ping tool from team cymru.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+\OT1/cmr/m/n/10 https://www.team-cymru.com/IP-ASN-
+ []
+
+[6]) [7] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3337 strings out of 493029
- 52876 string characters out of 6136234
- 141947 words of memory out of 5000000
- 6842 multiletter control sequences out of 15000+600000
- 5504 words of font info for 20 fonts, out of 8000000 for 9000
+ 3303 strings out of 493029
+ 51782 string characters out of 6136234
+ 125059 words of memory out of 5000000
+ 6811 multiletter control sequences out of 15000+600000
+ 8241 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,40p,270b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,40p,336b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -432,13 +391,15 @@ ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmti10.pfb>
-Output written on paper.pdf (8 pages, 846551 bytes).
+public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
+fb>
+Output written on paper.pdf (7 pages, 398109 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

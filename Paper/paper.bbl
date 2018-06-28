@@ -4,11 +4,33 @@
 Caida as relationships.
 \newblock http://data.caida.org/datasets/as-relationships/.
 
+\bibitem{FOTN}
+Freedom on the net 2017.
+\newblock https://freedomhouse.org/sites/default/files/FOTN\_2017\_Final.pdf.
+
+\bibitem{itu}
+International telecommunication union internet statistics.
+\newblock https://www.itu.int/en/ITU-D/Statistics/Pages/stat/default.aspx.
+
+\bibitem{cymru}
+Ip-asn mapping tool from team cymru.
+\newblock https://www.team-cymru.com/IP-ASN-mapping.html.
+
 \bibitem{throats}
 HB~Acharya, Sambuddho Chakravarty, and Devashish Gosain.
 \newblock Few throats to choke: On the current structure of the internet.
 \newblock In {\em Local Computer Networks (LCN), 2017 IEEE 42nd Conference on},
   pages 339--346. IEEE, 2017.
+
+\bibitem{irancensor}
+Simurgh Aryan, Homa Aryan, and J~Alex Halderman.
+\newblock Internet censorship in iran: A first look.
+\newblock In {\em FOCI}, 2013.
+
+\bibitem{OONI}
+Arturo Filasto and Jacob Appelbaum.
+\newblock Ooni: Open observatory of network interference.
+\newblock In {\em FOCI}, 2012.
 
 \bibitem{gao}
 Lixin Gao.
@@ -27,17 +49,25 @@ Devashish Gosain, Anshika Agarwal, Sambuddho Chakravarty, and HB~Acharya.
 \newblock In {\em Proceedings of the 33rd Annual Computer Security Applications
   Conference}, pages 577--589. ACM, 2017.
 
-\bibitem{converge}
-Timothy~G Griffin and Gordon Wilfong.
-\newblock An analysis of bgp convergence properties.
-\newblock {\em ACM SIGCOMM Computer Communication Review}, 29(4):277--288,
-  1999.
+\bibitem{arabspring}
+Philip~N Howard, Aiden Duffy, Deen Freelon, Muzammil~M Hussain, Will Mari, and
+  Marwa Maziad.
+\newblock Opening closed regimes: what was the role of social media during the
+  arab spring?
+\newblock 2011.
 
 \bibitem{CAIDApaper}
 Matthew Luckie, Bradley Huffaker, Amogh Dhamdhere, Vasileios Giotsas, et~al.
 \newblock As relationships, customer cones, and validation.
 \newblock In {\em Proceedings of the 2013 conference on Internet measurement
   conference}, pages 243--256. ACM, 2013.
+
+\bibitem{tracerouteProblems}
+Zhuoqing~Morley Mao, Jennifer Rexford, Jia Wang, and Randy~H Katz.
+\newblock Towards an accurate as-level traceroute tool.
+\newblock In {\em Proceedings of the 2003 conference on Applications,
+  technologies, architectures, and protocols for computer communications},
+  pages 365--378. ACM, 2003.
 
 \bibitem{politicsrouting}
 Rachee Singh, Hyungjoon Koo, Najmehalsadat Miramirkhani, Fahimeh Mirhaj,
@@ -46,14 +76,6 @@ Rachee Singh, Hyungjoon Koo, Najmehalsadat Miramirkhani, Fahimeh Mirhaj,
   connectivity and internet freedom.
 \newblock In {\em 6th {USENIX} Workshop on Free and Open Communications on the
   Internet ({FOCI} 16)}, Austin, TX, 2016. {USENIX} Association.
-
-\bibitem{hierarchy}
-Lakshminarayanan Subramanian, Sharad Agarwal, Jennifer Rexford, and Randy~H
-  Katz.
-\newblock Characterizing the internet hierarchy from multiple vantage points.
-\newblock In {\em INFOCOM 2002. Twenty-First Annual Joint Conference of the
-  IEEE Computer and Communications Societies. Proceedings. IEEE}, volume~2,
-  pages 618--627. IEEE, 2002.
 
 \bibitem{chinafiltering}
 Xueyang Xu, Z~Morley Mao, and J~Alex Halderman.
