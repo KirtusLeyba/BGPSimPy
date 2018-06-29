@@ -29,7 +29,6 @@ Internet Freedom}
 \setlength{\parskip}{0pt}
 
 \begin{document}
-\raggedbottom
 \maketitle
 \begin{multicols}{2}
 
@@ -109,7 +108,11 @@ has a significant relationship to Internet freedom as measured by a qualitative 
 
 % Rest of Paper Layout
 \par
-
+The layout of the rest of this paper is as follows: Section 3 provides relavent background information
+to the problems we are investigating; Section 4 introduces and defines the measure of chokepoint
+potential; Section 5 details our tool for simulating and evaluating AS topologies \toolname; Section 6
+explains our experimental setups; Sections 7, 8, and 9 provide results, discussion, and related work
+respectively.
 
 \section{Background}
 
@@ -117,7 +120,7 @@ The AS-layer of the Internet is the highest level of organization of the Interne
 large university networks, or government entities. Interdomain routing between these ASes is governed by BGP, and
 individual ASes may have local preferences for how they wish to send packets along, but they cannot govern the paths
 selected by other ASes. AS topology researchers often use measurement tools to create a picture of the global Internet.
-These measurement tools, for instance BGP Updates from BGPStream \cite{BGPStream} or empirical paths from traceroute \cite{traceroute}, suffer from
+These measurement tools, for instance BGP Updates from BGPStream \cite{BGPStream} or empirical paths from traceroute, suffer from
 incompleteness and innacuracies \cite{tracerouteProblems}.
 \par
 AS-level studies are further complicated by the lack of ground truth data for AS relationships and BGP paths. For AS relationships,
@@ -282,6 +285,13 @@ trend shows that it has become more difficult to intercept BGP paths. Unlike the
 \par
 In order to compare multiple nations, we have plotted the number of ASes needed to intercept 90\% of in-to-out paths
 for each timestamp recorded. These results are detailed in figure \ref{fig:nodes}.
+The distinct behaviors of each nation are rather striking. We can see a steep decline for some
+nations known to limit Internet freedom (China and Iran) as well as the increase for other nations
+(Germany and Brazil). Other nations have stayed more stable. It is worth pointing out that if a nation
+has required the same number of border ASes to control many paths over several years, this suggests
+that the chokepoints have grown to intercept more paths. The reason for this is that the number of ASes,
+and thus the number of paths, has increased globally over time. This fact makes the decline in ASes
+needed for some nations even more glaring.
 
 
 \subsection{Internet Freedom}
@@ -365,6 +375,23 @@ nations that could easily implement censorship if their governments decided to.
 
 
 \section{Discussion}
+
+% Chokepoint Potential
+In this paper we have introduced a novel measure, chokepoint potential, that allows us to
+evaluate the level of difficulty that a government faces when trying to censor the Internet
+based entirely on AS-level topology. Our technique for evaluating chokepoint potential using
+\toolname provides a monitoring capability of BGP dynamics that was previously not possible.
+We have taken advantage of efficient simulation, standard AS relationship datasets, and cross-platform
+design principles so that this tool is readily deployable for future research.
+% Ecolution over time
+\par
+Our application of \toolname to investigate evolutions in the global AS graph over time shows us
+interesting trends in AS topologies.
+% Internet Freedom
+\par
+We have validated chokepoint potential as having a relationship to actual censorship by showing
+the significance of the relationship between the chokepoint potential of nations and their FOTN
+score from freedom house.
 
 \subsection{Routing Trees Dataset}
 In the hope to further AS topology research, we have open sourced the routing tree datasets generated in this study. While we generated routing trees

@@ -3,52 +3,51 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: paper.aux
 The style file: plain.bst
 Database file #1: paper.bib
-Warning--I didn't find a database entry for "BGPStream"
-Warning--I didn't find a database entry for "traceroute"
 Warning--to sort, need author or key in itu
 Warning--to sort, need author or key in FOTN
+Warning--to sort, need author or key in BGPStream
 Warning--to sort, need author or key in CAIDA
 Warning--to sort, need author or key in cymru
 Warning--empty journal in arabspring
-You've used 15 entries,
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            580 strings with 6654 characters,
-and the built_in function-call counts, 5253 in all, are:
-= -- 520
-> -- 236
+            580 strings with 6672 characters,
+and the built_in function-call counts, 5412 in all, are:
+= -- 535
+> -- 237
 < -- 5
-+ -- 97
++ -- 98
 - -- 80
-* -- 330
-:= -- 798
-add.period$ -- 47
-call.type$ -- 15
-change.case$ -- 84
+* -- 335
+:= -- 815
+add.period$ -- 49
+call.type$ -- 16
+change.case$ -- 87
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 217
-empty$ -- 449
+cite$ -- 22
+duplicate$ -- 224
+empty$ -- 472
 format.name$ -- 80
-if$ -- 1164
+if$ -- 1204
 int.to.chr$ -- 0
-int.to.str$ -- 15
+int.to.str$ -- 16
 missing$ -- 11
-newline$ -- 74
+newline$ -- 78
 num.names$ -- 22
-pop$ -- 128
+pop$ -- 136
 preamble$ -- 1
-purify$ -- 69
+purify$ -- 71
 quote$ -- 0
-skip$ -- 163
+skip$ -- 171
 stack$ -- 0
-substring$ -- 281
-swap$ -- 66
+substring$ -- 286
+swap$ -- 67
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 60
-warning$ -- 5
+type$ -- 64
+warning$ -- 6
 while$ -- 41
-width$ -- 17
-write$ -- 153
-(There were 7 warnings)
+width$ -- 18
+write$ -- 160
+(There were 6 warnings)
