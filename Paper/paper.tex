@@ -1,11 +1,12 @@
 %&pdflatex
 \documentclass{article}
 
-\usepackage{color}
+\usepackage{xcolor}
 \usepackage{subcaption}
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{geometry}
+\usepackage{todonotes}
  \geometry{
  a4paper,
  total={170mm,257mm},
@@ -17,8 +18,8 @@
   {\par\medskip\noindent\minipage{\linewidth}}
   {\endminipage\par\medskip}
 
-\newcommand{\toolname}{{\color{blue}TOOL\_NAME }}
-
+\newcommand{\toolname}{{\textcolor{blue}TOOL\_NAME }}
+\newcommand{\Ben}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 
 %Titles:
 %\title{The Evolution of National AS Chokepoints and Their Connection to
@@ -32,18 +33,16 @@
 \begin{document}
 \maketitle
 \begin{multicols}{2}
+\abstract{
+  Internet topology has been measured and modeled for many years, but few studies  quantify how the topology changes over time.\Ben[inline]{This is not true, there are many studies of the evolution of the AS Internet. We should be more specificy about what this statement means, ie with respect to national boundaries}.  Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
 
-  \section{Abstract}
-
-  Internet topology has been measured and modeled for many years, but few studies  quantify how the topology changes over time.  Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
-
-  In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how chokepoint potential correlates with two independent measures of civilian liberty, finding [NEED A RESULT HERE].  [NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME].
+  In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how chokepoint potential correlates with two independent measures of civil liberty, finding \todo[inline]{NEED A RESULT HERE}. \todo[inline]{NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME}.
 
 This paper extends earlier research on AS topology and BGP simulation to study chokepoints across the Internet over multiple years, using our
 path simulation and routing tree datasets to view snapshots of the Internet
 over multiple years. We provide comprehensive and accessible tools for studying
 the complex and dynamic AS level Internet topology. Through this approach we
-can more carefully evaluate the state of the Internet than was previously possible. 
+can more carefully evaluate the state of the Internet than was previously possible.}
 
 %% Paths on the Autonomous Systems (AS) graph of the Internet
 %% derived from the Border Gateway Protocol (BGP) can be used by researchers to
@@ -72,7 +71,7 @@ can more carefully evaluate the state of the Internet than was previously possib
 
 \par Widespread Internet censorship and surveillance pose a
 significant threat to individuals throughout the world. As routine
-tasks, communications, entertainment, and information move on-line and
+tasks, communications, entertainment, and information move online and
 are mediated by the Internet, most of us have little choice about
 whether or not to rely on the Internet.  According to the
 International Telecommunication Union (ITU), the number of individual
@@ -83,7 +82,7 @@ the 2017 Freedom on the Net report from Freedom House reports that
 64\% of Internet users belong to a nation with Internet that is not
 free or partly free \cite{FOTN}.  Beyond censorship and surveillance,
 the EU is considering content rules surrounding copyright, net
-neutrality rules in the U.S. were recently overturned, and large
+neutrality rules in the U.S.\ were recently overturned, and large
 content delivery networks are under enormous pressure to 'do
 something' about fake news and bad actors. Taken together, these
 trends will likely restructure the Internet in unforeseen ways,
@@ -91,17 +90,17 @@ as organizations respond to new challenges and realities.
 
 Today, most such control is exercised at the country level,
 as governments have recognized both the threat and the opportunity
-that is posed by ubiquitous on-line communication. For example, much
+that is posed by ubiquitous online communication. For example, much
 of the organization, revolutionary momentum, and broadcasting of
 events during the Arab Spring have been attributed to social media
-communications through the Internet \cite{arabspring}, and similarly several countries
-sought to control these movements by disconnecting in-country networks from the rest of the world (FIXME: need references here).
+communications through the Internet \cite{arabspring}. Several countries
+sought to control these movements by disconnecting in-country networks from the rest of the world \todo[inline]{need references here}.
 
 These two factors, increasing levels of content monitoring and
 Internet dependence, point to the need for improved tools and methods
 for studying worldwide Internet censorship and surveillance over time.
-[A SENTENC OR TWO HERE SUMMARIZING THE STATE OF THE FIELD AND WHAT'S
-  MISSING.]  In this paper, we focus on AS-level topology and on
+\todo[inline]{A SENTENC OR TWO HERE SUMMARIZING THE STATE OF THE FIELD AND WHAT'S
+  MISSING.}  In this paper, we focus on AS-level topology and on
 censorship, asking how AS topology has changed over time with respect
 to national boundaries.  We define \emph{chokepoint potential} to
 quantify how a country’s AS topology is organized in terms of paths
@@ -109,8 +108,8 @@ that can carry traffic across international borders.  We developed a
 suite of tools, called \toolname, for studying national chokepoints on
 the AS graph efficiently. To illustrate these ideas and tools, we
 study how chokepoint potential correlates with two independent
-measures of civilian liberty, finding [NEED A RESULT HERE]. [NEED A
-  RESULT FOR WHAT WE FOUND FOR EVOLU- TION OVER TIME].
+measures of civilian liberty, finding \todo[inline]{NEED A RESULT HERE}. \todo[inline]{NEED A
+  RESULT FOR WHAT WE FOUND FOR EVOLU- TION OVER TIME}.
 
 The paper extends earlier research on AS topology, first by introducing the chokepoint potential measure, then by presenting open-source cross-platform tools for simulating
 and Border Gateway Protocol (BGP) networks, determining chokepoint potential at the country level, and analyzing how this measure has changed over time for certain countries of interest.
@@ -162,12 +161,17 @@ border ASes related to these capabilities.
 
 % Major Contributions
 \par
-The primary contributions of our work are as follows: \textbf{1.} We introduce the measure of chokepoint potential and 
-motivate its value as way to interpret the capability for a nation to enact censorship of its Internet traffic. \textbf{2.} We
-provide an overview of the evolution of national AS-level chokepoints over time, showing the evolution of the Internet
-allowing for a comparision between nations. \textbf{3.} We develop a new tool, \toolname, that provides the capability for
-efficiently evaluating chokepoints for a given state of the Internet. Finally, \textbf{4.}, we show that our chokepoint measure
+The primary contributions of our work are as follows: 
+\begin{enumerate}
+ \item We introduce the measure of chokepoint potential and 
+motivate its value as way to interpret the capability for a nation to enact censorship of its Internet traffic.
+ \item We provide an overview of the evolution of national AS-level chokepoints over time, showing the evolution of the Internet
+allowing for a comparision between nations.
+ \item We develop a new tool, \toolname, that provides the capability for
+efficiently evaluating chokepoints for a given state of the Internet. 
+ \item we show that our chokepoint measure
 has a significant relationship to Internet freedom as measured by a qualitative source.
+\end{enumerate}
 
 
 % Rest of Paper Layout
