@@ -82,8 +82,7 @@ that is posed by ubiquitous online communication. For example, much
 of the organization, revolutionary momentum, and broadcasting of
 events during the Arab Spring have been attributed to social media
 communications through the Internet \cite{arabspring}. Several countries
-sought to control these movements by disconnecting in-country networks from the rest of the world \todo[inline]{need references here}.
-
+sought to control these movements by disconnecting in-country networks from the rest of the world \cite{BGPdisrupt}.
 These two factors, increasing levels of content monitoring and
 Internet dependence, point to the need for improved tools and methods
 for studying worldwide Internet censorship and surveillance over time.
@@ -202,6 +201,13 @@ destination ASes (the root of the routing tree). We find this technique suitable
 
 \section{Chokepoint Potential}
 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{bnodes}
+	\caption{The ratio of ASes that are border ASes plotted over several years.}\label{fig:bnodes}
+\end{figure}
+
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{chokepoint}
@@ -213,10 +219,10 @@ destination ASes (the root of the routing tree). We find this technique suitable
 % Why Border ASes?
 In order to identify AS chokepoints and compare nations, we need a measure that can be calculated from the many paths between
 ASes. First, we decided to use a measure that is evaluated only on border ASes, or ASes that lie one hop from an AS belonging to another nation. 
-We argue that this is intuitive because border
-ASes are the first opportunity for nations to censor incoming traffic and the last opportunity for nations to block access to
-foreign websites from within their borders. Additionally, while internal chokepoints may intercept many paths, those paths are required
-to have entered through a border AS (in the case of out-to-in paths) or exit through a border AS (for in-to-out paths). This simplification has
+The evolution of AS relationships and national boundaries on the AS graph hints that border ASes are an important feature in regards to the flow
+of information. Consider that while the number of ASes globally has continued to grow rapidly, the number of border ASes has grown more slowly.
+This result is depicted in figure \ref{fig:bnodes}. Additionally, while internal chokepoints may intercept many paths, those paths are required
+to have entered through a border AS (in the case of out-to-in paths) or exit through a border AS (for in-to-out paths). This focus on border ASes has
 the added benefit of making calculations more efficient.
 
 % What is our measure, why does it make sense?
