@@ -1,22 +1,10 @@
 %&pdflatex
-\documentclass{article}
+\documentclass[10pt, conference, letterpaper]{IEEEtran}
 
 \usepackage{xcolor}
 \usepackage{subcaption}
 \usepackage{graphicx}
-\usepackage{multicol}
-\usepackage{geometry}
 \usepackage{todonotes}
- \geometry{
- a4paper,
- total={170mm,257mm},
- left=20mm,
- top=20mm,
- }
-
- \newenvironment{Figure}
-  {\par\medskip\noindent\minipage{\linewidth}}
-  {\endminipage\par\medskip}
 
 \newcommand{\toolname}{{\textcolor{blue}TOOL\_NAME }}
 \newcommand{\Ben}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
@@ -29,13 +17,10 @@
 
 
 \graphicspath{{./images/}}
-\setlength{\parskip}{0pt}
 
 \begin{document}
 \maketitle
-\begin{multicols}{2}
-\abstract{
-  Internet topology has been measured and modeled for many years, but few studies  quantify how the topology changes over time.\Ben[inline]{This is not true, there are many studies of the evolution of the AS Internet. We should be more specificy about what this statement means, ie with respect to national boundaries}.  Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
+\begin{abstract}{.Internet topology has been measured and modeled for many years, but few studies  quantify how the topology changes over time.\Ben[inline]{This is not true, there are many studies of the evolution of the AS Internet. We should be more specificy about what this statement means, ie with respect to national boundaries}.  Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
 
   In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how chokepoint potential correlates with two independent measures of civil liberty, finding \todo[inline]{NEED A RESULT HERE}. \todo[inline]{NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME}.
 
@@ -44,6 +29,7 @@ path simulation and routing tree datasets to view snapshots of the Internet
 over multiple years. We provide comprehensive and accessible tools for studying
 the complex and dynamic AS level Internet topology. Through this approach we
 can more carefully evaluate the state of the Internet than was previously possible.}
+\end{abstract}
 
 %% Paths on the Autonomous Systems (AS) graph of the Internet
 %% derived from the Border Gateway Protocol (BGP) can be used by researchers to
@@ -212,13 +198,13 @@ destination ASes (the root of the routing tree). We find this technique suitable
 
 \section{Chokepoint Potential}
 
-\begin{Figure}
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{chokepoint}
-	\captionof{figure}{Chokepoint potential example. ASes A,B, and C are all border nodes. 
+	\caption{Chokepoint potential example. ASes A,B, and C are all border nodes. 
 						AS D is an internal node. ASes E and F are both external nodes.
 						The out-to-in chokepoint potentials of A,B, and C are 0.25, 0.25, and 0.5 respectively.}\label{fig:chokepoint}
-\end{Figure}
+\end{figure}
 
 % Why Border ASes?
 In order to identify AS chokepoints and compare nations, we need a measure that can be calculated from the many paths between
@@ -304,17 +290,17 @@ with each nation's (of those recorded by Freedom House) freedom on the net score
 \section{Results}
 \subsection{Nations Over Time}
 
-\begin{Figure}
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{single_CN}
-	\captionof{figure}{The evolution of China's in-to-out Chokepoint Potential}\label{fig:ChinaChokePoint}
-\end{Figure}
+	\caption{The evolution of China's in-to-out Chokepoint Potential}\label{fig:ChinaChokePoint}
+\end{figure}
 
-\begin{Figure}
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{single_US}
-	\captionof{figure}{The evolution of the US's Chokepoint Potential}\label{fig:USChokePoint}
-\end{Figure}
+	\caption{The evolution of the US's Chokepoint Potential}\label{fig:USChokePoint}
+\end{figure}
 
 To inspect the changes over time for each nation we arrange all the border nodes belonging to a nation into a list. The list of border ASes is reverse sorted
 so that the first AS has the highest chokepoint potential. The sum of all these nodes' chokepoint potential is 1.0. Then we step through the list, and record
@@ -336,21 +322,21 @@ ASes can intercept nearly all BGP paths. The US has evolved in a different way. 
 more difficult to intercept around 70\% of its paths and higher. This suggest an expansion of ASes on the interior and more connections, as well as a strengthening of
 the very top ASes.
 
-\begin{Figure}
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{single_DE}
-	\captionof{figure}{The evolution of Germany's in-to-out Chokepoint Potential}\label{fig:GermChokePoint}
-\end{Figure}
+	\caption{The evolution of Germany's in-to-out Chokepoint Potential}\label{fig:GermChokePoint}
+\end{figure}
 
 \par
 Not all nations have evolved to a state where it easier to control paths. One example is Germany, as shown in figure \ref{fig:GermChokePoint}. For Germany, a fairly constant
 trend shows that it has become more difficult to intercept BGP paths. Unlike the other examples, any amount of German border ASes intercept less paths in more recent tests.
 
-\begin{Figure}
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{NodesNeeded}
-	\captionof{figure}{Number of ASes to intercept 90\% of ito paths for multiple nations over time}\label{fig:nodes}
-\end{Figure}
+	\caption{Number of ASes to intercept 90\% of ito paths for multiple nations over time}\label{fig:nodes}
+\end{figure}
 
 
 \par
@@ -372,11 +358,11 @@ of each nation vs the number of border ASes that that nation needed to in order 
 we evaluated the relationship with an Ordinarly Least Squares (OLS) fit, and found that the relationship was statistically significant,
 with a p-value $\leq$ 0.002 for 2017. The relationship held for other timestamps as well. The results for 2017 are shown in figure \ref{fig:fotn2017}
 
-\begin{Figure}
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{fotn2017}
-	\captionof{figure}{Number of ASes to intercept 90\% of ito paths vs Freedom On The Net Score (2017)}\label{fig:fotn2017}
-\end{Figure}
+	\caption{Number of ASes to intercept 90\% of ito paths vs Freedom On The Net Score (2017)}\label{fig:fotn2017}
+\end{figure}
 
 \par
 For each timestamp we see what appears to be two general modes of behavior. Nations that are not free or partly free tend to requrie few ASes
@@ -486,7 +472,5 @@ censorship events and chokepoint potential changes, and as such lies beyond the 
 
 \bibliographystyle{plain}
 \bibliography{paper}
-
-\end{multicols}
 
 \end{document}
