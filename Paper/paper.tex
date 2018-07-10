@@ -20,7 +20,8 @@
 
 \begin{document}
 \maketitle
-\begin{abstract}{.Internet topology has been measured and modeled for many years, but few studies  quantify how the topology changes over time.\Ben[inline]{This is not true, there are many studies of the evolution of the AS Internet. We should be more specificy about what this statement means, ie with respect to national boundaries}.  Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
+
+\begin{abstract}Internet topology has been measured and modeled for many years, but few studies  quantify how the topology changes over time.\Ben[inline]{This is not true, there are many studies of the evolution of the AS Internet. We should be more specificy about what this statement means, ie with respect to national boundaries}.  Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
 
   In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how chokepoint potential correlates with two independent measures of civil liberty, finding \todo[inline]{NEED A RESULT HERE}. \todo[inline]{NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME}.
 
@@ -28,7 +29,7 @@ This paper extends earlier research on AS topology and BGP simulation to study c
 path simulation and routing tree datasets to view snapshots of the Internet
 over multiple years. We provide comprehensive and accessible tools for studying
 the complex and dynamic AS level Internet topology. Through this approach we
-can more carefully evaluate the state of the Internet than was previously possible.}
+can more carefully evaluate the state of the Internet than was previously possible.
 \end{abstract}
 
 %% Paths on the Autonomous Systems (AS) graph of the Internet
@@ -171,14 +172,17 @@ respectively.
 
 \section{Background}
 
-The AS-layer is the highest level of organization of the Internet, with each individual AS consisting of a separately administered network, which could represent a large ISP, a university network, or a government entity. The Border Gateway Protocol (BGP) is used to route traffic among ASes. \Steph[inline]{need citations}.  AS-level routes are known as \emph{paths} and are specified by routing tables stored locally in each BGP node.  These tables express local preferences for how data are routed, e.g., if there are multiple paths to a single destination, an AS may prefer the path that costs the least.
+The AS-layer is the highest level of organization of the Internet, with each individual AS consisting of a separately administered network, which could represent a large ISP, a university network, or a government entity. The Border Gateway Protocol (BGP) is used to route traffic among ASes \cite{bgp}.  AS-level routes are known as \emph{paths} and are specified by routing tables stored locally in each BGP node.  These tables express local preferences for how data are routed, e.g., if there are multiple paths to a single destination, an AS may prefer the path that costs the least.
 
 Because BGP is a distributed protocol, with all connectivity
 information stored in the local routing tables, it is challenging to
 infer the exact AS topology at any point in time.  There are several
 strategies for inferring the AS graph from local information, and no method is perfect.  
 BGP Updates from BGPStream \cite{BGPStream} or empirical paths from traceroute, suffer from
-incompleteness and innacuracies \cite{tracerouteProblems}.\Steph[inline]{Kirts: Please explain BGPStream and what the problem with it is.}
+incompleteness and innacuracies \cite{tracerouteProblems}. BGP dumps and routing table updates
+suffer from the fact that BGP paths stored in routing tables reflect only the current knowledge of
+a single AS about the routes available. Thus one would need to use many sources to get an accurate picture of
+these routes. This approach is not easily scalable for global studies, particularly those looking at multiple time periods.
 \par
 AS-level studies are further complicated by the lack of ground truth data for AS relationships and BGP paths. For AS relationships,
 inference is often used based on economic considerations to classify the relationships of ASes. This was first done by Gao \cite{gao} by
