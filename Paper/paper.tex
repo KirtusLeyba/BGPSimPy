@@ -20,6 +20,7 @@
 
 \newcommand{\toolname}{{\textcolor{blue}TOOL\_NAME }}
 \newcommand{\Ben}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommand{\Steph}[2][1=]{\todo[linecolor=yellow,backgroundcolor=yellow!25,bordercolor=yellow,#1]{#2}}
 
 %Titles:
 %\title{The Evolution of National AS Chokepoints and Their Connection to
@@ -184,12 +185,14 @@ respectively.
 
 \section{Background}
 
-The AS-layer of the Internet is the highest level of organization of the Internet. ASes generally represent ISP networks,
-large university networks, or government entities. Interdomain routing between these ASes is governed by BGP, and
-individual ASes may have local preferences for how they wish to send packets along, but they cannot govern the paths
-selected by other ASes. AS topology researchers often use measurement tools to create a picture of the global Internet.
-These measurement tools, for instance BGP Updates from BGPStream \cite{BGPStream} or empirical paths from traceroute, suffer from
-incompleteness and innacuracies \cite{tracerouteProblems}.
+The AS-layer is the highest level of organization of the Internet, with each individual AS consisting of a separately administered network, which could represent a large ISP, a university network, or a government entity. The Border Gateway Protocol (BGP) is used to route traffic among ASes. \Steph[inline]{need citations}.  AS-level routes are known as \emph{paths} and are specified by routing tables stored locally in each BGP node.  These tables express local preferences for how data are routed, e.g., if there are multiple paths to a single destination, an AS may prefer the path that costs the least.
+
+Because BGP is a distributed protocol, with all connectivity
+information stored in the local routing tables, it is challenging to
+infer the exact AS topology at any point in time.  There are several
+strategies for inferring the AS graph from local information, and no method is perfect.  
+BGP Updates from BGPStream \cite{BGPStream} or empirical paths from traceroute, suffer from
+incompleteness and innacuracies \cite{tracerouteProblems}.\Steph[inline]{Kirts: Please explain BGPStream and what the problem with it is.}
 \par
 AS-level studies are further complicated by the lack of ground truth data for AS relationships and BGP paths. For AS relationships,
 inference is often used based on economic considerations to classify the relationships of ASes. This was first done by Gao \cite{gao} by
