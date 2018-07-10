@@ -6,7 +6,7 @@
 \usepackage{graphicx}
 \usepackage{todonotes}
 
-\newcommand{\toolname}{{\textcolor{blue}TOOL\_NAME }}
+\newcommand{\toolname}{BGP-SAS }
 \newcommand{\Ben}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommand{\Steph}[2][1=]{\todo[linecolor=yellow,backgroundcolor=yellow!25,bordercolor=yellow,#1]{#2}}
 
@@ -21,9 +21,9 @@
 \begin{document}
 \maketitle
 
-\begin{abstract}Internet topology has been measured and modeled for many years, but few studies  quantify how the topology changes over time.\Ben[inline]{This is not true, there are many studies of the evolution of the AS Internet. We should be more specificy about what this statement means, ie with respect to national boundaries}.  Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
+\begin{abstract}Internet topology has been measured and modeled for many years, and this topology has been linked to censorship and surveillance. Past studies have not, however, quantified the potential for individual nations to intercept national level Internet paths or analyzed how the evolution of the Internet topology impacts censorship and surveillance. Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
 
-  In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how chokepoint potential correlates with two independent measures of civil liberty, finding \todo[inline]{NEED A RESULT HERE}. \todo[inline]{NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME}.
+  In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how chokepoint potential correlates with two independent measures of civil liberty, finding a significant relationship between our measure and Internet freedom. \todo[inline]{NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME}.
 
 This paper extends earlier research on AS topology and BGP simulation to study chokepoints across the Internet over multiple years, using our
 path simulation and routing tree datasets to view snapshots of the Internet
@@ -249,7 +249,7 @@ censorship or surveillance. This is a clear way to differentiate nations based o
 \section{\toolname}
 
 % Preprocessing and Data pipeline
-\toolname is a new tool that calculates the chokepoint potential for every border AS given a set of AS relationships.
+Border Gateway Protocol Simulation, Analysis, and Storage, or \toolname, is a new tool that calculates the chokepoint potential for every border AS given a set of AS relationships.
 \toolname first takes the entire AS graph, as in from the CAIDA dataset \cite{CAIDA}, and uses the principles of BGPSim \cite{quicksand}
 to generate a set of routing trees. These routing trees, as well as a set of AS country codes (for identifying which nation an AS belongs to)
 are used to determine the chokepoint potentials for every border node. In our experiments, we used the country codes returned from Team Cymru's
