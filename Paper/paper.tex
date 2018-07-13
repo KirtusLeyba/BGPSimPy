@@ -468,7 +468,16 @@ working with these simpler than recalculating them. This also provides an altern
 BGP paths.
 
 % Points of Presence
-
+\subsection{Other Chokepoint Measures}
+There are several ways that a country can create chokepoints, either intentionally or accidentally: taking advantage of Internet Exchange Points (IXPs),
+limiting the number of physical connections that cross the border, or working with---and supporting---a s,a;; set pf ;arge ISPs that have international connections.
+Each of these combines two basic elements: limiting the number of organizations that the government must interact with and creating physical locations where traffic can be controlled.
+We chose to define chokepoint potential in terms of the AS graph instead of physical locations because the AS graph captures the most interesting physical attributes of the Internet, and
+virtualization of the physical and datalink layers on the Internet make physical locations less meaningful. A single undersea cable can be multiplexed to serve as several different links in
+the AS graph, and ASes in one country can have physical Points of Presence (PoPs) in several other countries (e.g., China Telecom in Pasadena, California). Thus, the AS graph is a good approximation
+of overall chokepoint potential, and information such as geography and the physical locations of routers does not add meaningfully to the analysis without considering every individual piece of Internet
+infrastructue on a case-by-case basis. Additionally, the dramatic shifts in chokepoint potential over time depicted in our analysis are unrelated to constant geography, so our AS-level study is important
+to show time evolution of chokepoints.
 
 \subsection{Future Work}
 % OONI data
