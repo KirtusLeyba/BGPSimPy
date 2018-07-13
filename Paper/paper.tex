@@ -438,9 +438,10 @@ to identify where keyword filtering occurred. They found that the most
 effective ASes with which to deploy keyword filtering devices are those in the
 backbone of the Chinese AS topology. A relevant contribution of
 \cite{chinafiltering} is that, while most filtering occurs in border ASes,
-some filtering is controlled by non-central provincial ASes. China has a
+some filtering at the time of the study was controlled by non-central provincial
+ASes. China had a
 diverse strategy for Internet censorship, both targeting chokepoints and the
-Chinese provincial network. The potential for various forms of censorship in
+Chinese provincial network, but this may have changed since. The potential for various forms of censorship in
 regards to various AS level topologies motivates the question: Is centralized
 censorship or decentralized censorship more common? Instead of directly
 identifying censorship devices on the AS graph, we instead quantify the
@@ -491,7 +492,9 @@ BGP paths.
 % Points of Presence
 \subsection{Other Chokepoint Measures}
 There are several ways that a country can create chokepoints, either intentionally or accidentally: taking advantage of Internet Exchange Points (IXPs),
-limiting the number of physical connections that cross the border, or working with---and supporting---a s,a;; set pf ;arge ISPs that have international connections.
+limiting the number of physical connections that cross the border, centralizing
+the DNS infrastructure within the country, or working
+with---and supporting---a set of ISPs that have international connections.
 Each of these combines two basic elements: limiting the number of organizations that the government must interact with and creating physical locations where traffic can be controlled.
 We chose to define chokepoint potential in terms of the AS graph instead of physical locations because the AS graph captures the most interesting physical attributes of the Internet, and
 virtualization of the physical and datalink layers on the Internet make physical locations less meaningful. A single undersea cable can be multiplexed to serve as several different links in
@@ -499,6 +502,14 @@ the AS graph, and ASes in one country can have physical Points of Presence (PoPs
 of overall chokepoint potential, and information such as geography and the physical locations of routers does not add meaningfully to the analysis without considering every individual piece of Internet
 infrastructue on a case-by-case basis. Additionally, the dramatic shifts in chokepoint potential over time depicted in our analysis are unrelated to constant geography, so our AS-level study is important
 to show time evolution of chokepoints.
+
+The DNS infrastructure is another potential graph where chokepoints can be
+exploited for censorship and surveillance\~cite{Greschbach2016a} and is at a
+higher layer in the network stack than IP routes.  However, we leave analysis of
+this graph for future work because it is outside the scope of \toolname and
+because the countries that rely on DNS as their main form of censorship are
+fewer in number and are among the least sophisticated in terms of their
+censorship regime.
 
 \subsection{Future Work}
 % OONI data
