@@ -25,16 +25,32 @@
 \begin{document}
 \maketitle
 
-\begin{abstract}Internet topology has been measured and modeled for many years, and this topology has been linked to censorship and surveillance. Past studies have not, however, quantified the potential for individual nations to intercept national level Internet paths or analyzed how the evolution of the Internet topology impacts censorship and surveillance. Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
+% \begin{abstract}Internet topology has been measured and modeled for many years, and this topology has been linked to censorship and surveillance. Past studies have not, however, quantified the potential for individual nations to intercept national level Internet paths or analyzed how the evolution of the Internet topology impacts censorship and surveillance. Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
 
-  In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{national chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname{}, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how national chokepoint potential correlates with two independent measures of civil liberty, finding a significant relationship between our measure and Internet freedom. \todo[inline]{NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME}.
+%   In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{national chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname{}, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how national chokepoint potential correlates with two independent measures of civil liberty, finding a significant relationship between our measure and Internet freedom. \todo[inline]{NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME}.
 
-This paper extends earlier research on AS topology and BGP simulation to study chokepoints across the Internet over multiple years, using our
-path simulation and routing tree datasets to view snapshots of the Internet
-over multiple years. We provide comprehensive and accessible tools for studying
-the complex and dynamic AS level Internet topology. Through this approach we
-can more carefully evaluate the state of the Internet than was previously possible.
+% This paper extends earlier research on AS topology and BGP simulation to study chokepoints across the Internet over multiple years, using our
+% path simulation and routing tree datasets to view snapshots of the Internet
+% over multiple years. We provide comprehensive and accessible tools for studying
+% the complex and dynamic AS level Internet topology. Through this approach we
+% can more carefully evaluate the state of the Internet than was previously possible.
+% \end{abstract}
+
+\begin{abstract}
+	Internet topology has been measured and modeled for many years, and this topology has been linked to 
+	censorship and surveillance. Past studies have not, however, quantified the potential for individual 
+	nations to intercept national level Internet paths or analyzed how the evolution of the Internet 
+	topology impacts censorship and surveillance. We introduce a new measure, \emph{national breakthrough
+	potential}, or NBP, to characterize how a country's AS topology is organized in terms of paths that can carry 
+	traffic across international borders.  To study country-level chokepoints, we developed \toolname{}, a 
+	suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the 
+	AS graph. 
+	We find that for many nations the continuous growth of the AS graph is not reflected by a more open
+	flow of information across national borders, and in fact for nations known to conduct censorship we
+	identify a trend toward strengthening chokepoints. Additionally, we find that a significant 
+	relationship exists between NBP and Internet freedom as evaluated from two qualitative sources.
 \end{abstract}
+
 
 %% Paths on the Autonomous Systems (AS) graph of the Internet
 %% derived from the Border Gateway Protocol (BGP) can be used by researchers to
@@ -75,7 +91,7 @@ the 2017 Freedom on the Net report from Freedom House reports that
 free or partly free \cite{FOTN}.  Beyond censorship and surveillance,
 the EU is considering content rules surrounding copyright, net
 neutrality rules in the U.S.\ were recently overturned, and large
-content delivery networks are under enormous pressure to 'do
+content services are under enormous pressure to 'do
 something' about fake news and bad actors. Also, other forms of Internet
 tampering such as code injection~\cite{badtraffic,191996} have been observed within the
 Internet's backbone. Taken together, these
@@ -93,19 +109,25 @@ These two factors, increasing levels of content monitoring and
 Internet dependence, point to the need for improved tools and methods
 for studying worldwide Internet censorship and surveillance over time.
 \todo[inline]{A SENTENC OR TWO HERE SUMMARIZING THE STATE OF THE FIELD AND WHAT'S
-  MISSING.}  In this paper, we focus on AS-level topology and on
-censorship, asking how AS topology has changed over time with respect
-to national boundaries.  We define \emph{national chokepoint potential} to
-quantify how a country’s AS topology is organized in terms of paths
-that can carry traffic across international borders.  We developed a
+  MISSING.}  
+
+\par
+In this paper, we focus on the Autonomous Systems (AS) level of the Internet.
+Autonomous Systems are groups of routers under common management, such as the network of
+a University or an Internet Service Provider (ISP). We apply AS-level topologies to
+censorship and surveillance by evaluating border ASes, or ASes that can connect directly to at least
+one AS from another nation according to a new measure \emph{chokepoint potential}.
+With this measure we can ask how AS topology has changed over time with respect
+to national boundaries.  We define \emph{national breakthrough potential} to
+measure how a country's AS topology is organized in terms of paths
+that can carry traffic across international borders. We developed a
 suite of tools, called \toolname{}, for studying national chokepoints on
 the AS graph efficiently. To illustrate these ideas and tools, we
 study how national chokepoint potential correlates with two independent
-measures of civilian liberty, finding \todo[inline]{NEED A RESULT HERE}. \todo[inline]{NEED A
-  RESULT FOR WHAT WE FOUND FOR EVOLU- TION OVER TIME}.
-
-The paper extends earlier research on AS topology, first by introducing the national chokepoint potential measure, then by presenting open-source cross-platform tools for simulating
-and Border Gateway Protocol (BGP) networks, determining chokepoint potential at the country level, and analyzing how this measure has changed over time for certain countries of interest.
+measures of civilian liberty, finding that a significan relationship exists between NBP and both liberty measures.
+The paper extends earlier research on AS topology, first by introducing the NBP measure, 
+then by presenting open-source cross-platform tools for simulating Border Gateway Protocol (BGP) paths,
+determining breakthrough potential at the country level, and analyzing how this measure has changed over time for certain countries of interest.
 
 
 %Whether or not AS-level topology supports
@@ -123,11 +145,10 @@ and Border Gateway Protocol (BGP) networks, determining chokepoint potential at 
 
 %The Internet is Dynamic and growing
 
-We are interested in how AS topologies have changed as the total size of the graph has grown from about 10,000 ASes in the early 2000s to over 60,000 today.
-The structural
-properties of national AS graphs have evolved differently
-from nation to nation whether from economic decision making, infrastructural necessities, or
-efforts to build a powerful censorship and surveillance
+The change in national AS topologies is of interest to censorship research.
+The total size of the AS graph (The global network of all ASes) has grown from about 10,000 ASes in the early 2000s to over 60,000 today. 
+The structural properties of national subgraphs have evolved differently
+from nation to nation whether from economic decision making, infrastructural necessities, or efforts to build a powerful censorship and surveillance
 network.
 %The Autonomous Systems (AS) layer of the Internet has grown and changed dramatically over its history.
 %The locations and relationships of these ASes determine how many chokepoints
@@ -140,44 +161,49 @@ control information as it flows in and out of their networks.
 %Current Events
 
 %Diverse Censorship Architecture
-\par Every nation has a different layout and count of ASes. The
+\par Every nation has a different layout and number of ASes, and these national networks
+connect to foreign ASes in unique ways. The
 censorship and surveillance strategies of nations also differ. For
 instance, China both conducts keyword filtering in border ASes and in
 internal provincial ASes \cite{chinafiltering}, while Iran routes its
 Internet traffic through a centralized facility \cite{irancensor}.
-Having views into the AS topology of a nation, then, will both help
+A picture of a nation's censorship or surveillance capabillities then
+is not complete without a topological view point.
+Having the capabillity to investigate the AS topology of a nation, then, will both help
 researchers identify nations that could easily conduct censorship and
 also provide possible insight into what kind of censorship is likely
-being conducted. The measure of chokepoint potential, defined later in
-this paper, is a succint way to estimate the important properties of
-border ASes related to these capabilities.
+being conducted. Our measure of border ASes, chokepoint potential, defined in detial
+in section 3, is a succint way to estimate the important properties of
+border ASes related to these capabilities, and our aggregate extension of this measure to
+the national level, national breakthrough potential, is an effective way to evaluate and
+compare nations and analyze the evolution of the AS-level censorship and surveillance landscape.
 
 % Major Contributions
 \par
 The primary contributions of our work are as follows: 
 \begin{enumerate}
- \item We introduce the measure of chokepoint potential for single border ASes and the aggregate measure national chokepoint potential, 
+ \item We introduce the measure of chokepoint potential for single border ASes and the aggregate measure national breakthrough potential, 
 motivating their value as a way to interpret the capability for a nation to enact censorship or surveillance of its Internet traffic.
  \item We provide an overview of the evolution of national AS-level chokepoints over time, showing how the evolution of the Internet has either facillitated stronger
  AS-level chokepoints or lead to more open flow of information across borders.
  \item We develop a new tool, \toolname{}, that provides the capability for
 efficiently evaluating chokepoints for a given state of the Internet. 
- \item we show that national chokepoint potential
+ \item We show that national breakthrough potential
 has a significant relationship to Internet freedom as measured by two qualitative sources.
 \end{enumerate}
 
 
 % Rest of Paper Layout
 \par
-The layout of the rest of this paper is as follows: Section 3 provides relavent background information
-to the problems we are investigating; Section 4 introduces and defines the measure of chokepoint
-potential; Section 5 details our tool for simulating and evaluating AS topologies \toolname{}; Section 6
-explains our experimental setups; Sections 7, 8, and 9 provide results, discussion, and related work
+The layout of the rest of this paper is as follows: Section 2 provides relavent background information
+to the problems we are investigating; Section 3 introduces and defines the measures of chokepoint
+potential and national breakthrough potential; Section 4 details our tool for simulating and evaluating AS topologies \toolname{}; Section 5
+explains our experimental setups; Sections 6, 7, and 8 provide results, discussion, and related work
 respectively.
 
 \section{Background}
 
-The AS-layer is the highest level of organization of the Internet, with each individual AS represents a separately administered network, for example, a large ISP, a university network, or a government entity. The Border Gateway Protocol (BGP) is used to route traffic among ASes \cite{bgp}.  AS-level routes are known as \emph{paths} and are specified by routing tables stored locally in each BGP AS.  These tables express known connections to other ASes and local preferences for how data are routed, e.g., if there are multiple paths to a single destination, an AS may prefer the path that costs the least.
+The AS-layer is the highest level of organization of the Internet, with each individual AS represents a separately administered network, for example, a large ISP, a university network, or a government entity. The Border Gateway Protocol (BGP) is used to route traffic among ASes \cite{bgp}.  AS-level routes are known as \emph{paths} and are specified by routing tables stored locally in each AS. These tables express known connections to other ASes and local preferences for how data are routed, e.g., if there are multiple paths to a single destination, an AS may prefer the path that costs the least.
 
 Because BGP is a distributed protocol, with all connectivity
 information stored in the local routing tables, it is challenging to
@@ -223,7 +249,7 @@ root of the routing tree). We find this technique suitable for our
 purposes, so we extend BGPSim (in ways explained further in this
 paper) as part of \toolname{}.
 
-\section{Chokepoint Potential}
+\section{Chokepoint Measures}
 
 
 \begin{figure}
@@ -250,7 +276,7 @@ over time so that the ratio of border ASes to ASes has almost continuously decre
 neccessarily the case, however. Because AS-level paths are generated by the distributed BGP and the local preferences of AS administrators often do not
 lead to simple shortest path selections, a better way to understand the potential for bottlenecks on border ASes is to investigate the number of BGP generated
 paths that pass through each AS. To do this we propose an intuitive measure on border ASes called \emph{chokepoint potential}. Since this is a measure for single ASes
-we also need an aggregate measure for comparing nations, which we call \emph{national chokepoint potential}.
+we also need an aggregate measure for comparing nations, which we call \emph{national breakthrough potential}.
 
 % % Why Border ASes?
 % In order to identify AS chokepoints and compare nations, we need a measure that can be calculated from the many paths between
@@ -283,26 +309,30 @@ the sum of the chokepoint potential for all border ASes for a country is 1.0, as
 flow of information over the nation's border. To compare one nation to another, we can inspect how many border ASe minimum are required
 to obtain a certain chokepoint potential. The more border ASes required, the more difficult it would likely be for that nation to perform
 censorship or surveillance, as the government would have to restrict more ISPs, place more filtering hardware, etc. Thus, we can define
-another measure, with this one being a national measure. We define the \emph{national chokepoint potential} of a nation to be the minimum number
+another measure, with this one being a national measure. We define the \emph{national breakthrough potential} of a nation to be the minimum number
 of ASes required to intercept a selected percentage of AS-level paths. Previous work has used 90\% path interception as a benchmark indicating strong control
 of information \cite{throats}, so we use this percentage as well. When used here, however, 90\% path interception indicates a single nation intercepts 90\% of the paths
-that either enter said nation (for the out-to-in case) or exit said nation (for the in-to-out case). National chokepoint potential is calculated taking the strongest ASes first,
+that either enter said nation (for the out-to-in case) or exit said nation (for the in-to-out case). National breakthrough potential is calculated taking the strongest ASes first,
 such that the measure reflects the smallest number of border ASes needed to intercept the paths. We use the number of ASes here and not a percentage because using a percentage would
 make it difficult to compare nations. Take for instance the United States, which has many more ASes than most nations. If the United States and another nation both required the same percentage
 of border ASes to intercept 90\% of paths, the similarity of these nations would be misleading, because the United States would actually need to control many more ASes.
-Our technique provides a comparison more likely to reflect reality.
+Our technique provides a comparison more likely to reflect reality. This measure is called a breakthrough potential because it indicates the number of border ASes that intercept a vast majority of paths, meaning that a country with high NBP would require controlling many border ASes to prevent a breakthrough, or an unfettered access of
+internal ASes to that country.
 
 \section{\toolname}
 
 % Preprocessing and Data pipeline
-\toolname{} is a new tool that calculates the chokepoint potential for every border AS given a set of AS relationships.
+\toolname{} is a new tool that calculates the chokepoint potential for every border AS given a set of AS relationships as well as the national breakthrough potential
+for all nations represented by the AS graph.
 \toolname{} first takes the entire AS graph, as in from the CAIDA dataset \cite{CAIDA}, and uses the principles of BGPSim \cite{quicksand}
 to generate a set of routing trees. These routing trees, as well as a set of AS country codes (for identifying which nation an AS belongs to)
-are used to determine the chokepoint potentials for every border AS. Finally, \toolname{} calclates the national chokepoint potential 
+are used to determine the chokepoint potentials for every border AS. Finally, \toolname{} calclates the national breakthrough potential 
 for each nation. In our experiments, we used the country codes returned from Team Cymru's
-IP to ASN whois service \cite{cymru}. This service only maintains the most recent registration of each AS, so to control for uncertain country to AS links
-we keep ASes that have been registered more recently than the current timestam being tested in the path simulation but we do not assign these ASes chokepoint potentials. We chose this route
-because the datasets of AS registrations for the various ASN registries tended to have more missing data at specific timestamps.
+IP to ASN whois service \cite{cymru} to determine which ASes were registered to which nation. 
+This service only maintains the most recent registration of each AS, so to control for uncertain country to AS links
+we keep ASes that have been registered more recently than the current timestam being tested in the path simulation but we do not assign these ASes chokepoint potentials. We 
+chose this route because the datasets of AS registrations for the various ASN registries tended to have more missing data at specific timestamps.
+Fortunately, ASes with registration changes after each test date tend to not be in the AS graph for that test.
 
 % Routing Tree Algorithm
 \par
@@ -319,7 +349,7 @@ Once BGPSimPy generates the routing trees, they can be processed to determine ch
 we use the same random tie-break as BGPSim, there is only 1 path between each AS-pair considered, even if multiple exist in the routing tree. Once a path is determined, it is
 traversed. For each AS visited, the number of paths intercepted by that AS is incremented. This is done for both in-to-out paths and out-to-in paths, so only one traversal is
 necessary per path. Additionally, the number of paths of each type that belong to each nation is tallied, as this makes up the denominator in equation \ref{eqn:chokePointPotential}.
-\toolname{} takes the resulting chokepoint potentials and generates national chokepoint potentials for each nation.
+\toolname{} takes the resulting chokepoint potentials and generates national breakthrough potentials for each nation.
 
 \section{Experimental Setup}
 
@@ -341,7 +371,7 @@ and it would increase the value in monitoring chokepoint potentials across the g
 \par
 We tested whether a significant relationship exists between our measure of national chokepoints and a qualitative evaluation of Internet Freedom. For Internet Freedom we used
 the Freedom House's Freedom On The Net report \cite{FOTN}. FOTN scores quantify the level of Internet freedom in countries. Each country receives a numerical score from 0 (the most free)
-to 100 (the least free). We compare our results to the FOTN scores by ranking nations according to national chokepoint potential, particulary the number of border ASes required to intercept
+to 100 (the least free). We compare our results to the FOTN scores by ranking nations according to national breakthrough potential, particulary the number of border ASes required to intercept
 90\% of paths for each nation and viewing these rankings against the FOTN scores.
 
 \section{Results}
@@ -401,7 +431,7 @@ trend shows that it has become more difficult to intercept BGP paths. Unlike the
 In order to compare multiple nations, we have plotted the number of ASes needed to intercept 90\% of in-to-out paths
 for each timestamp recorded. These results are detailed in \figurename \ref{fig:nodesFree} and \figurename \ref{fig:nodesCensor}.
 The distinct behaviors of each nation are rather striking. We can see a steep decline for some
-nations known to limit Internet freedom (China and Iran) as well as the increase for other nations
+nations known to limit Internet freedom (China and Turkey) as well as the increase for other nations
 (Germany and France). Other nations have stayed more stable. It is worth pointing out that if a nation
 has required the same number of border ASes to control many paths over several years, this suggests
 that the chokepoints have grown to intercept more paths. The reason for this is that the number of ASes,
@@ -411,16 +441,23 @@ needed for some nations even more glaring.
 
 \subsection{Internet Freedom}
 
-In our test of the relationship between Internet Freedom and national chokepoint potential, we plotted the Freedom on the Net score
+In our test of the relationship between Internet Freedom and national breakthrough potential, we plotted the Freedom on the Net score
 of each nation vs the number of border ASes that that nation needed to in order to intercept 90\% of in-to-out paths. Additionally,
 we evaluated the relationship with an Ordinarly Least Squares (OLS) fit, and found that the relationship was statistically significant,
-with a p-value $\leq$ 0.002 for 2017. The relationship held for other timestamps as well. The results for 2017 are shown in figure \ref{fig:fotn2017}
+with a p-value $\leq$ 0.002 for 2017. The relationship held for other timestamps as well. The results for 2017 are shown in figure \ref{fig:fotn}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{fotn2017}
-	\caption{Number of ASes to intercept 90\% of ito paths vs Freedom On The Net Score (2017). 
-	Green nations are free, yellow are mostly free, and blue are not free according to FOTN.}\label{fig:fotn2017}
+	\includegraphics[width=\linewidth]{fotn}
+	\caption{The National Breakthrough Potential (in-to-out) for nations plotted against the FOTN score
+	of those nations in 2017. A higher FOTN score indicates a less free nation. Our OLS fit is also plotted.}\label{fig:fotn}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{fotp}
+	\caption{The National Breakthrough Potential (in-to-out) for nations plotted against the FPI
+	of those nations in 2017. A higher FPI indicates a less free nation. Our OLS fit is also plotted.}\label{fig:fotp}
 \end{figure}
 
 \par
@@ -491,24 +528,28 @@ sheds light on the relationship between topology and Internet freedom, but revea
 nations that could easily implement censorship if their governments decided to.
 
 
-\section{Discussion}
+\section{Conclusions and Discussion}
 
 % Chokepoint Potential
-In this paper we have introduced a novel measure, chokepoint potential, that allows us to
+In this paper we have introduced two novel measures, chokepoint potential, on single border ASes,
+and national breakthrough potential, on entire nations, that together allow us to
 evaluate the level of difficulty that a government faces when trying to censor the Internet
-based entirely on AS-level topology. Our technique for evaluating chokepoint potential using
+based entirely on AS-level topology. Our technique for evaluating AS-level topology using
 \toolname{} provides a monitoring capability of BGP dynamics that was previously not possible.
 We have taken advantage of efficient simulation, standard AS relationship datasets, and cross-platform
 design principles so that this tool is readily deployable for future research.
 % Ecolution over time
 \par
-Our application of \toolname{} to investigate evolutions in the global AS graph over time shows us
-interesting trends in AS topologies.
+Our application of \toolname{} to investigate evolution of the global AS graph over time shows us
+interesting trends in AS topologies. We have identified the apparent lack of major nations to develop
+more open Internet borders and gateways, despite the increasing connectivity and size of the AS graph. Additionally,
+we find that the chokepoints in some nations known to conduct censorship and surveillance have increased in strength.
 % Internet Freedom
 \par
-We have validated chokepoint potential as having a relationship to actual censorship by showing
-the significance of the relationship between the chokepoint potential of nations and their FOTN
-score from freedom house.
+We have validated national breakthrough potential as having a relationship to actual censorship by showing
+the significance of the relationship between the chokepoint potential of nations and the evaluations of freedom provided
+by both freedom on the net and freedom of the press. This relationship implies that when censorship and surveillance are being evaluated
+at the national level, it is worthwhile to consider the border AS chokepoints that are resident to the nation in question.
 
 \subsection{Routing Trees Dataset}
 In the hope to further AS topology research, we have open sourced the routing tree datasets generated in this study. While we generated routing trees
