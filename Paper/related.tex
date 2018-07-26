@@ -1,0 +1,59 @@
+\section{Related Work}   
+\par
+Previous studies have used BGP path models to find ASes that
+intercept a high fraction of paths. One such project in \cite{throats}
+identified that 90\% of paths on the Internet could be intercepted with only 30
+or so ASes. The researchers in \cite{throats} generated paths by first using
+only paths to top websites as defined by the Alexa top websites project,
+and then appending additional edges to those paths from the full
+AS graph according to the principles defined by Gao \cite{gao}. Many of the
+ASes that were found to intercept a large number of paths were found to be
+within nations that conduct censorship. As an extension of these results,
+another paper \cite{decoy} revealed that ASes that intercept many paths could
+be utilized for decoy routing. This approach for identifying AS level
+chokepoints has several potential pitfalls that are remedied by the approach
+taken in this paper. First, the authors in \cite{throats} didn't consider that
+many of the paths found from the Alexa top websites would have destinations in
+nations that censor Internet traffic, particularly China due to its large
+Internet population. This artificially inflates the chokepoint nature of
+Chinese ASes. As an alternative, in this paper we consider paths from every
+source-destination AS pair, and we make a distinction between in-to-out paths
+and out-to-in paths. Secondly, chokepoints have previously only been
+identified at a single snapshot of the Internet. This makes it difficult to
+discuss the evolution of Internet topology, and whether or not chokepoints are
+anomalous or common. Finally, the aforementioned approach for identifying
+chokepoints does not allow a clear comparison between different nations. It
+can be said that one nation controls a large portion of Internet paths, but
+not how easily traffic directed through that country could be intercepted on a
+national level. For this, some aggregate measure across all of the border ASes
+within a country must be considered, as it is in this paper.     
+\par
+In \cite{chinafiltering}, Xu et al. investigated the AS level topology of China
+to identify where keyword filtering occurred. They found that the most
+effective ASes with which to deploy keyword filtering devices are those in the
+backbone of the Chinese AS topology. A relevant contribution of
+\cite{chinafiltering} is that, while most filtering occurs in border ASes,
+some filtering at the time of the study was controlled by non-central provincial
+ASes. China had a
+diverse strategy for Internet censorship, both targeting chokepoints and the
+Chinese provincial network, but this may have changed since. The potential for various forms of censorship in
+regards to various AS level topologies motivates the question: Is centralized
+censorship or decentralized censorship more common? Instead of directly
+identifying censorship devices on the AS graph, we instead quantify the
+chokepoint potential of ASes on the national level, and then compare that with
+qualitative Internet freedom measures and empirical censorship events.
+\par
+We are not the first to investigate the relationship between Internet freedom and
+AS-level topology. Similar techniques have been used to classify nations according
+to the connectivity of their ASes \cite{politicsrouting}. This has only been done for a
+single moment in time, however, making the results limited in terms of stability and predictability.
+Additionaly, previous work has not used country level chokepoints as the link between Internet topology
+and censorship or surveillance practices. The work in \cite{politicsrouting} chose to relate Internet topology
+to the Freedom of the Press measure from freedom house instead of the Freedom On The Net score. They chose to do this
+to include more nations. Additionally, this study didn't include the United States and Russia in their experiments because they were
+outliers in regards to their topologies. Through our approach we hope to extend this previous work by finding an interesting measure for
+understanding the dynamics of all nations, as well as targeting our results more specifically to Internet freedom by using the Freedom On
+The Net score as our measure for Internet freedom. Through our techniques, we provide a simple measure that not only 
+sheds light on the relationship between topology and Internet freedom, but reveals currently free
+nations that could easily implement censorship if their governments decided to.
+

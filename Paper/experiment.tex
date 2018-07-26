@@ -1,0 +1,22 @@
+\section{Experimental Setup}
+
+% Chokepoint Evolution
+There is ongoing research interest into ASes that intercept large portions of Internet paths \cite{throats}, \cite{decoy}. Some important questions remain unanswered however. For instance, to what
+extent does the current state of the Internet support national governments' attempts to censor Internet traffic? How does this vary from nation to nation? Is the Internet developing more
+powerful chokepoints, or becoming more evenly accessible?
+\par
+To probe these questions we first used our chokepoint evaluation technique to investigate the chokepoint potential of all nations for the current Internet as well as the
+change in chokepoint potentials over time. We looked at multiple snapshots of AS relationships from the CAIDA dataset (2012-2018).
+For each timestamp, we generated routing trees based on these relationships. Then we calculated the chokepoint potential for every border AS per snapshot. As a result we can investigate
+how countries have changed overtime in their capability to enact censorship and surveillance. This is an attempt to understand what topological trends have developed historically.
+With this test we can compare nations, and see which ones have overtime increased their capability to control the flow of information across their borders.
+\par
+% Chokepoints and Internet Freedom
+If chokepoint potential can be leveraged to determine if a nation can easily implement censorship, it stands to reason that their might already be a negative relationship between
+the chokepoint potential of a nation and its Internet freedom. If a significant relationship were to be found it would strengthen chokepoint potential as a measure of a nation's censorship capability
+and it would increase the value in monitoring chokepoint potentials across the globe.
+\par
+We tested whether a significant relationship exists between our measure of national chokepoints and a qualitative evaluation of Internet Freedom. For Internet Freedom we used
+the Freedom House's Freedom On The Net report \cite{FOTN}. FOTN scores quantify the level of Internet freedom in countries. Each country receives a numerical score from 0 (the most free)
+to 100 (the least free). We compare our results to the FOTN scores by ranking nations according to national breakthrough potential, particulary the number of border ASes required to intercept
+90\% of paths for each nation and viewing these rankings against the FOTN scores.

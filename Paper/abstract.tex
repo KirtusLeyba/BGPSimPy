@@ -1,0 +1,49 @@
+% \begin{abstract}Internet topology has been measured and modeled for many years, and this topology has been linked to censorship and surveillance. Past studies have not, however, quantified the potential for individual nations to intercept national level Internet paths or analyzed how the evolution of the Internet topology impacts censorship and surveillance. Over the past decade, governments around the world have recognized that the Internet is a powerful tool for controlling and surveilling their citizens, and they have begun enacting common policies for ASes operating within their borders.
+
+%   In this paper, we ask how AS topology has changed over time with respect to national boundaries.  We introduce a new measure, \emph{national chokepoint potential}, to characterize how a country's AS topology is organized in terms of paths that can carry traffic across international borders.  To study country-level chokepoints, we developed \toolname{}, a suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the AS graph.  To illustrate these ideas and tools, we studied how national chokepoint potential correlates with two independent measures of civil liberty, finding a significant relationship between our measure and Internet freedom. \todo[inline]{NEED A RESULT FOR WHAT WE FOUND FOR EVOLUTION OVER TIME}.
+
+% This paper extends earlier research on AS topology and BGP simulation to study chokepoints across the Internet over multiple years, using our
+% path simulation and routing tree datasets to view snapshots of the Internet
+% over multiple years. We provide comprehensive and accessible tools for studying
+% the complex and dynamic AS level Internet topology. Through this approach we
+% can more carefully evaluate the state of the Internet than was previously possible.
+% \end{abstract}
+
+\begin{abstract}
+	Internet topology has been measured and modeled for many years, and this topology has been linked to 
+	censorship and surveillance. Past studies have not, however, quantified the potential for individual 
+	nations to intercept national level Internet paths or analyzed how the evolution of the Internet 
+	topology impacts censorship and surveillance. We introduce a new measure, \emph{national breakthrough
+	potential}, or NBP, to characterize how a country's AS topology is organized in terms of paths that can carry 
+	traffic across international borders.  To study country-level chokepoints, we developed \toolname{}, a 
+	suite of open source, cross platform, and efficient tools for monitoring national chokepoints on the 
+	AS graph. 
+	We find that for many nations the continuous growth of the AS graph is not reflected by a more open
+	flow of information across national borders, and in fact for nations known to conduct censorship we
+	identify a trend toward strengthening chokepoints. Additionally, we find that a significant 
+	relationship exists between NBP and Internet freedom as evaluated from two qualitative sources.
+\end{abstract}
+
+
+%% Paths on the Autonomous Systems (AS) graph of the Internet
+%% derived from the Border Gateway Protocol (BGP) can be used by researchers to
+%% understand the dynamics of Internet topology and to interpret how that
+%% topology may enable nations to enact censorship, surveillance, or other
+%% Internet control measures. Unfortunately datasets of these paths are not
+%% generally made publicly available, and paths collected from measurements such as
+%% traceroute or BGP probes tend to be incomplete. Simulation
+%% frameworks have been used to generate AS paths based on inferred AS relationships.
+%% We introduce \toolname, a suite of open source, cross platform, and efficient
+%% tools for monitoring national chokepoints on the AS graph. We introduce chokepoint potential as an important measure of a nation's ability to 
+%% control Internet traffic, either through censorship or surveillance.
+%% Previous research endeavors in this
+%% direction have only identified chokepoints in single snapshots. We apply our
+%% path simulation and routing tree datasets to view snapshots of the Internet
+%% over multiple years in order to introduce a new technique to investigate the
+%% evolution of the complex and dynamic AS level Internet topology. Through this approach we
+%% can more carefully evaluate the state of the Internet than was previously possible. As an
+%% application of \toolname we compare Freedom House's Freedom On The Net (FOTN) score for
+%% Internet freedom and with our chokepoint potential measure in order to interpret
+%% the relationship between AS-level topology and actual censorship activity, providing an
+%% illustration of new ways to monitor which governments can easily control the flow of 
+%% information in their nations and whether they are acting on that potential.

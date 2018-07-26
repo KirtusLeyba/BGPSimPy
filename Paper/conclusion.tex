@@ -1,0 +1,61 @@
+\section{Conclusions and Discussion}
+
+% Chokepoint Potential
+In this paper we have introduced two novel measures, chokepoint potential, on single border ASes,
+and national breakthrough potential, on entire nations, that together allow us to
+evaluate the level of difficulty that a government faces when trying to censor the Internet
+based entirely on AS-level topology. Our technique for evaluating AS-level topology using
+\toolname{} provides a monitoring capability of BGP dynamics that was previously not possible.
+We have taken advantage of efficient simulation, standard AS relationship datasets, and cross-platform
+design principles so that this tool is readily deployable for future research.
+% Ecolution over time
+\par
+Our application of \toolname{} to investigate evolution of the global AS graph over time shows us
+interesting trends in AS topologies. We have identified the apparent lack of major nations to develop
+more open Internet borders and gateways, despite the increasing connectivity and size of the AS graph. Additionally,
+we find that the chokepoints in some nations known to conduct censorship and surveillance have increased in strength.
+% Internet Freedom
+\par
+We have validated national breakthrough potential as having a relationship to actual censorship by showing
+the significance of the relationship between the chokepoint potential of nations and the evaluations of freedom provided
+by both freedom on the net and freedom of the press. This relationship implies that when censorship and surveillance are being evaluated
+at the national level, it is worthwhile to consider the border AS chokepoints that are resident to the nation in question.
+
+\subsection{Routing Trees Dataset}
+In the hope to further AS topology research, we have open sourced the routing tree datasets generated in this study. While we generated routing trees
+with an efficient algorithm, it still requires considerable time to calculate them, particulary for multiple timestamps. Additionally, each set of routing trees
+takes up on the order of 50GB of disk space. By releasing these datasets we hope that researchers looking for a particular set of routing trees will find
+working with these simpler than recalculating them. This also provides an alternative to research projects that might otherwise use measurement tools to estimate
+BGP paths.
+
+% Points of Presence
+\subsection{Other Chokepoint Measures}
+There are several ways that a country can create chokepoints, either intentionally or accidentally: taking advantage of Internet Exchange Points (IXPs),
+limiting the number of physical connections that cross the border, centralizing
+the DNS infrastructure within the country, or working
+with---and supporting---a set of ISPs that have international connections.
+Each of these combines two basic elements: limiting the number of organizations that the government must interact with and creating physical locations where traffic can be controlled.
+We chose to define chokepoint potential in terms of the AS graph instead of physical locations because the AS graph captures the most interesting physical attributes of the Internet, and
+virtualization of the physical and datalink layers on the Internet make physical locations less meaningful. A single undersea cable can be multiplexed to serve as several different links in
+the AS graph, and ASes in one country can have physical Points of Presence (PoPs) in several other countries (e.g., China Telecom in Pasadena, California). Thus, the AS graph is a good approximation
+of overall chokepoint potential, and information such as geography and the physical locations of routers does not add meaningfully to the analysis without considering every individual piece of Internet
+infrastructue on a case-by-case basis. Additionally, the dramatic shifts in chokepoint potential over time depicted in our analysis are unrelated to constant geography, so our AS-level study is important
+to show time evolution of chokepoints.
+
+The DNS infrastructure is another potential graph where chokepoints can be
+exploited for censorship and surveillance\~cite{Greschbach2016a} and is at a
+higher layer in the network stack than IP routes.  However, we leave analysis of
+this graph for future work because it is outside the scope of \toolname{} and
+because the countries that rely on DNS as their main form of censorship are
+fewer in number and are among the least sophisticated in terms of their
+censorship regime.
+
+\subsection{Future Work}
+% OONI data
+While linking chokepoint potential to FOTN scores is a substantial contribution, it still stands that FOTN can serve only as a proxy for censorship.
+This is useful for large trends and general understanding, but a more fine-grained approach could be used to interpret the direct connection between
+actual censorship events and the shifts in the AS graph. The Open Observatory of Network Interference, or OONI, \cite{OONI} provides Internet users around
+the world with a tool called the ooniprobe. The ooniprobe lets users run a suite of tests to identify censorship anamolies of various types, and the results are
+recorded in the large OONI database. Matching up changes in OONI measurements, such as increased censorship campaigning in an authoritarian nation, with shifts
+in chokepoint potential would be a major step in understanding the interplay of censorship and AS-level chokepoints. This process involves designing a way to classify
+censorship events and chokepoint potential changes, and as such lies beyond the scope of this study.
