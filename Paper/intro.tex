@@ -14,7 +14,7 @@ the 2017 Freedom on the Net report from Freedom House reports that
 free or partly free \cite{FOTN}.  Beyond censorship and surveillance,
 the EU is considering content rules surrounding copyright, net
 neutrality rules in the U.S.\ were recently overturned, and large
-content services are under enormous pressure to 'do
+content services are under enormous pressure to `do
 something' about fake news and bad actors. Also, other forms of Internet
 tampering such as code injection~\cite{badtraffic,191996} have been observed within the
 Internet's backbone. Taken together, these
@@ -37,21 +37,57 @@ for studying worldwide Internet censorship and surveillance over time.
 \par
 In this paper, we focus on the Autonomous Systems (AS) level of the Internet.
 Autonomous Systems are groups of routers under common management, such as the network of
-a University or an Internet Service Provider (ISP). We apply AS-level topologies to
-censorship and surveillance by evaluating border ASes, or ASes that can connect directly to at least
-one AS from another nation according to a new measure \emph{chokepoint potential}.
-With this measure we can ask how AS topology has changed over time with respect
-to national boundaries.  We define \emph{national breakthrough potential} to
-measure how a country's AS topology is organized in terms of paths
-that can carry traffic across international borders. We developed a
+a university or an Internet Service Provider (ISP). The change in national AS topologies 
+is of interest to censorship research. The total size of the AS graph (The global network 
+of all ASes) has grown from about 10,000 ASes in the early 2000s to over 60,000 today. 
+The structural properties of national subgraphs have evolved differently
+from nation to nation whether from economic decision making, infrastructural necessities, 
+or efforts to build a powerful censorship and surveillance network.\Ben[inline]{Need citations for economic, infrastructure, censorship}.
+%The Autonomous Systems (AS) layer of the Internet has grown and changed dramatically over its history.
+%The locations and relationships of these ASes determine how many chokepoints
+%of AS-level routing exist and what strength these chokepoints have in regards to paths intercepted.
+This rapid expansion, together with the changing role of national
+governments, points to the importance of understanding properties like
+path robustness, AS hierarchies, and the potential for organizations to
+control information as it flows in and out of their networks.
+
+\par Every nation has a different layout and number of ASes, and these national networks
+connect to foreign ASes in unique ways. The
+censorship and surveillance strategies of nations also differ. For
+instance, China both conducts keyword filtering in border ASes and in
+internal provincial ASes \cite{chinafiltering}, while Iran routes its
+Internet traffic through a centralized facility \cite{irancensor}.
+A picture of a nation's censorship or surveillance capabilities then
+is not complete without examining its underlying AS topology.
+Having the capability to investigate the AS topology of a nation, then, will both help
+researchers identify nations that could easily conduct censorship and
+also provide possible insight into what kind of censorship is likely
+being conducted. 
+
+We examine how censorship and surveillance might be conducted 
+at the AS-level by evaluating border ASes, or ASes that can connect directly to at least
+one AS from another nation. We introduce a new measure called \emph{chokepoint potential} which
+captures the ability of a node to control communication to the Interent outside a nation's borders.
+We can then aggregate this measure and define \emph{national breakthrough potential} to
+measures the concentration of routing paths into and out of a country. 
+\Ben[inline]{These definitions are important. They need to be a concise and clear definitions. I don't think it's right yet, but we are close}
+With these measures 
+we can ask how the AS-level topology has changed over time with respect
+to national boundaries. 
+
+We developed a
 suite of tools, called \toolname{}, for studying national chokepoints on
 the AS graph efficiently. To illustrate these ideas and tools, we
 study how national chokepoint potential correlates with two independent
-measures of civilian liberty, finding that a significan relationship exists between NBP and both liberty measures.
+measures of civil liberty, finding that significant relationship exists between NBP and both measures.
 The paper extends earlier research on AS topology, first by introducing the NBP measure, 
 then by presenting open-source cross-platform tools for simulating Border Gateway Protocol (BGP) paths,
 determining breakthrough potential at the country level, and analyzing how this measure has changed over time for certain countries of interest.
-
+Our measure of border ASes, chokepoint potential, defined in detail
+in section 3, is a succinct way to estimate the important properties of
+border ASes related to the ability of a nation to censor and surveil, and our aggregate extension of this measure to
+the national level, national breakthrough potential, is an effective way to evaluate and
+compare nations and analyze the evolution of the AS-level censorship and surveillance landscape.\Ben[inline]{This paragraph seems a little redundant now. It is a combo of other previous writing, but I am not sure what to cut.}
 
 %Whether or not AS-level topology supports
 %these efforts is a research question pivotal to an understanding of
@@ -68,46 +104,23 @@ determining breakthrough potential at the country level, and analyzing how this 
 
 %The Internet is Dynamic and growing
 
-The change in national AS topologies is of interest to censorship research.
-The total size of the AS graph (The global network of all ASes) has grown from about 10,000 ASes in the early 2000s to over 60,000 today. 
-The structural properties of national subgraphs have evolved differently
-from nation to nation whether from economic decision making, infrastructural necessities, or efforts to build a powerful censorship and surveillance
-network.
-%The Autonomous Systems (AS) layer of the Internet has grown and changed dramatically over its history.
-%The locations and relationships of these ASes determine how many chokepoints
-%of AS-level routing exist and what strength these chokepoints have in regards to paths intercepted.
-This rapid expansion, together with the changing role of national
-governments, points to the importance of understanding properties like
-path robustness, AS hierarchies, and the potential for organizations to
-control information as it flows in and out of their networks.
+
 
 %Current Events
 
 %Diverse Censorship Architecture
-\par Every nation has a different layout and number of ASes, and these national networks
-connect to foreign ASes in unique ways. The
-censorship and surveillance strategies of nations also differ. For
-instance, China both conducts keyword filtering in border ASes and in
-internal provincial ASes \cite{chinafiltering}, while Iran routes its
-Internet traffic through a centralized facility \cite{irancensor}.
-A picture of a nation's censorship or surveillance capabillities then
-is not complete without a topological view point.
-Having the capabillity to investigate the AS topology of a nation, then, will both help
-researchers identify nations that could easily conduct censorship and
-also provide possible insight into what kind of censorship is likely
-being conducted. Our measure of border ASes, chokepoint potential, defined in detial
-in section 3, is a succint way to estimate the important properties of
-border ASes related to these capabilities, and our aggregate extension of this measure to
-the national level, national breakthrough potential, is an effective way to evaluate and
-compare nations and analyze the evolution of the AS-level censorship and surveillance landscape.
+
 
 % Major Contributions
 \par
 The primary contributions of our work are as follows: 
 \begin{enumerate}
- \item We introduce the measure of chokepoint potential for single border ASes and the aggregate measure national breakthrough potential, 
-motivating their value as a way to interpret the capability for a nation to enact censorship or surveillance of its Internet traffic.
- \item We provide an overview of the evolution of national AS-level chokepoints over time, showing how the evolution of the Internet has either facillitated stronger
+ \item We introduce the measure of chokepoint potential for single border ASes and the 
+ aggregate measure national breakthrough potential, 
+motivating their value as a way to interpret the capability for a 
+nation to enact censorship or surveillance of its Internet traffic.
+ \item We provide an overview of the evolution of national AS-level chokepoints over time, 
+ showing how the evolution of the Internet has either facilitated stronger
  AS-level chokepoints or lead to more open flow of information across borders.
  \item We develop a new tool, \toolname{}, that provides the capability for
 efficiently evaluating chokepoints for a given state of the Internet. 
@@ -120,6 +133,7 @@ has a significant relationship to Internet freedom as measured by two qualitativ
 \par
 The layout of the rest of this paper is as follows: Section 2 provides relavent background information
 to the problems we are investigating; Section 3 introduces and defines the measures of chokepoint
-potential and national breakthrough potential; Section 4 details our tool for simulating and evaluating AS topologies \toolname{}; Section 5
+potential and national breakthrough potential; Section 4 details our tool for simulating and evaluating 
+AS topologies \toolname{}; Section 5
 explains our experimental setups; Sections 6, 7, and 8 provide results, discussion, and related work
 respectively.
