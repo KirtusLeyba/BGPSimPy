@@ -39,7 +39,10 @@ leading to the CAIDA AS-relationship dataset \cite{CAIDApaper},
 are the current research standard.
 
 \par Finding BGP paths is more of
-a challenge.\Ben[inline]{Be more clear about the difference between `Finding BGP paths' and what you have discussed above.}
+a challenge. BGP paths are not simply the shortest paths available on the
+AS graph. Instead, they are determined by a combination of the dynamics of
+BGP updates between ASes and the local preferences of each AS to route traffic
+to destinations according to the policy of the AS administrator. 
 Packet based simulations, wherein BGP is simulated
 directly, are computationally infeasible for the scales relevant to a
 global study. An accurate, but realistic, simulation technique must be
