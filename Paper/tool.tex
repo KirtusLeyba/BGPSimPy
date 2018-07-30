@@ -1,32 +1,59 @@
 
 \section{\toolname}
 
+In this section we describe \toolname{}, its relationship to previous attempts
+at identifying routing paths, and how it is used to calculate chokepoint
+potential.
+
 % Preprocessing and Data pipeline
-\toolname{} is a new tool that calculates the chokepoint potential for every border AS given a set of AS relationships as well as the national breakthrough potential
-for all nations represented by the AS graph.
-\toolname{} first takes the entire AS graph, as in from the CAIDA dataset \cite{CAIDA}, and uses the principles of BGPSim \cite{quicksand}
-to generate a set of routing trees. These routing trees, as well as a set of AS country codes (for identifying which nation an AS belongs to)
-are used to determine the chokepoint potentials for every border AS. Finally, \toolname{} calclates the national breakthrough potential 
-for each nation. In our experiments, we used the country codes returned from Team Cymru's
-IP to ASN whois service \cite{cymru} to determine which ASes were registered to which nation. 
-This service only maintains the most recent registration of each AS, so to control for uncertain country to AS links
-we keep ASes that have been registered more recently than the current timestam being tested in the path simulation but we do not assign these ASes chokepoint potentials. We 
-chose this route because the datasets of AS registrations for the various ASN registries tended to have more missing data at specific timestamps.
-Fortunately, ASes with registration changes after each test date tend to not be in the AS graph for that test.
+\toolname{} is a new tool that simluates plausible BGP paths and calculates AS
+chokepoint potential and national chokepoint potential.  \toolname{} uses
+readily available AS relationship data, e.g. data made available from
+CAIDA~\cite{CAIDA}, and uses a similar approach to BGPSim \cite{quicksand} to
+generate a set of routing trees. \Ben[inline]{Need a short description of how
+BGPSim works, maybe below.}. These routing trees, as well as a set of AS
+country codes (for identifying which nation an AS belongs to) are used to
+determine the chokepoint potentials border ASes.  Finally, \toolname{}
+calclates the national breakthrough potential for each nation. In our
+experiments, we used the country codes returned from Team Cymru's IP to ASN
+whois service \cite{cymru} to determine which ASes were registered to which
+nation.  This service only maintains the most recent registration of each AS,
+so to control for uncertain country to AS links we keep ASes that have been
+registered more recently than the current timestamp being tested in the path
+simulation but we do not assign these ASes chokepoint
+potentials. We chose this
+route because the datasets of AS registrations for the various ASN registries
+tended to have more missing data at specific timestamps.  Fortunately, ASes
+with registration changes after each test date tend to not be in the AS graph
+for that test. \Ben[inline]{Two things. 1) This is sort of confusing, see if you
+can clarify it. 2) Is this a big deal? How often does this happen? If it
+happens frequently do we expect it to affect our results? }
 
 % Routing Tree Algorithm
-\par
-In order to calculate the routing trees, we use an extended version of the BGPSim algorithm developed by Gil et. al in \cite{quicksand}. In
-our work we addressed the following limitations of BGPSim: (1) BGPSim returns a set of ASes for each path it considers but not the order in which
-they are visited; (2) Once routing trees are determined, they cannot be accessed later without recalculation; (3) BGPSim relies on the outdated parallelization
-framework DryadLinq for C\#. To address these issues, we use a Python implementation we dub BGPSimPy. BGPSimPy returns ordered paths from its routing trees,
-saves routing trees to disk after calculation, and is parallelized with MPI via the mpi4py library. These improvements have the added benefit of yielding a cross platform
-routing tree algorithm that is ready to work on most hardware.
+\par In order to calculate the routing trees, we use an extended version of the
+BGPSim algorithm developed by Gil et. al in \cite{quicksand}. In our work we
+addressed the following limitations of BGPSim: (1) BGPSim returns a set of ASes
+for each path it considers but not the order in which they are visited; (2)
+Once routing trees are determined, they cannot be accessed later without
+recalculation; (3) BGPSim relies on the outdated parallelization framework
+DryadLinq for C\#. To address these issues, we implemented an our routing
+simulation tool in Python. \Ben[inline]{Why does BGPSim not return ordered
+paths, this seems trivial, but I don't know the implementation details, was it
+just an oversight or did you do something cool?}\toolname{} returns ordered paths from its routing trees, saves
+routing trees to disk after calculation, and is parallelized with MPI via the
+mpi4py library. These improvements have the added benefit of yielding a cross
+platform routing tree algorithm that is ready to work on most hardware.
 
 % Chokepoint calculation
-\par
-Once BGPSimPy generates the routing trees, they can be processed to determine chokepoint potentials. This is done by iterating over every path between each AS-pair. Because
-we use the same random tie-break as BGPSim, there is only 1 path between each AS-pair considered, even if multiple exist in the routing tree. Once a path is determined, it is
-traversed. For each AS visited, the number of paths intercepted by that AS is incremented. This is done for both in-to-out paths and out-to-in paths, so only one traversal is
-necessary per path. Additionally, the number of paths of each type that belong to each nation is tallied, as this makes up the denominator in equation \ref{eqn:chokePointPotential}.
-\toolname{} takes the resulting chokepoint potentials and generates national breakthrough potentials for each nation.
+\par Once \toolname{} generates the routing trees, they can be processed to
+determine chokepoint potentials. This is done by iterating over every path
+between each AS-pair. Because we use the same random tie-break as BGPSim, there
+is only 1 path between each AS-pair considered, even if multiple exist in the
+routing tree.\Ben[inline]{Put stuff in about tiebreaking being rare and
+unlikely to affect results} Once a path is determined, it is traversed. For each AS visited,
+the number of paths intercepted by that AS is incremented. This is done for
+both outgoing paths and incoming paths, so only one traversal is necessary
+per path. Additionally, the number of paths of each type that belong to each
+nation is tallied, as this makes up the denominator in equation
+\ref{eqn:chokePointPotential}.  \toolname{} takes the resulting chokepoint
+potentials and generates national breakthrough potentials for each nation.
