@@ -1,32 +1,14 @@
-\section{Conclusions and Discussion}
-
-% Chokepoint Potential
-In this paper we have introduced two novel measures, chokepoint potential, on single border ASes,
-and national breakthrough potential, on entire nations, that together allow us to
-evaluate the level of difficulty that a government faces when trying to censor the Internet
-based entirely on AS-level topology. Our technique for evaluating AS-level topology using
-\toolname{} provides a monitoring capability of BGP dynamics that was previously not possible.
-We have taken advantage of efficient simulation, standard AS relationship datasets, and cross-platform
-design principles so that this tool is readily deployable for future research.
-% Ecolution over time
-\par
-Our application of \toolname{} to investigate evolution of the global AS graph over time shows us
-interesting trends in AS topologies. We have identified the apparent lack of major nations to develop
-more open Internet borders and gateways, despite the increasing connectivity and size of the AS graph. Additionally,
-we find that the chokepoints in some nations known to conduct censorship and surveillance have increased in strength.
-% Internet Freedom
-\par
-We have validated national breakthrough potential as having a relationship to actual censorship by showing
-the significance of the relationship between the chokepoint potential of nations and the evaluations of freedom provided
-by both freedom on the net and freedom of the press. This relationship implies that when censorship and surveillance are being evaluated
-at the national level, it is worthwhile to consider the border AS chokepoints that are resident to the nation in question.
+\section{Discussion}
 
 \subsection{Routing Trees Dataset}
-In the hope to further AS topology research, we have open sourced the routing tree datasets generated in this study. While we generated routing trees
-with an efficient algorithm, it still requires considerable time to calculate them, particulary for multiple timestamps. Additionally, each set of routing trees
-takes up on the order of 50GB of disk space. By releasing these datasets we hope that researchers looking for a particular set of routing trees will find
-working with these simpler than recalculating them. This also provides an alternative to research projects that might otherwise use measurement tools to estimate
-BGP paths.
+Despite the use of efficient simulation techniques, collecting BGP path data is still not a simple task.
+For a global, multiple timestamp study such as this one, compute resources can be a limiting factor to
+researchers without access to a compute cluster.
+In the hope to further AS topology research, we have open sourced the routing tree datasets produced for
+this study, available at [removed for peer review] generated in this study. By releasing these datasets we 
+hope that researchers looking for a particular set of routing trees will find working with these simpler 
+than recalculating them, or creating new datasets by extensive measurement or
+inference.
 
 % Points of Presence
 \subsection{Other Chokepoint Measures}
@@ -59,3 +41,25 @@ the world with a tool called the ooniprobe. The ooniprobe lets users run a suite
 recorded in the large OONI database. Matching up changes in OONI measurements, such as increased censorship campaigning in an authoritarian nation, with shifts
 in chokepoint potential would be a major step in understanding the interplay of censorship and AS-level chokepoints. This process involves designing a way to classify
 censorship events and chokepoint potential changes, and as such lies beyond the scope of this study.
+
+\section{Conclusion}
+% Chokepoint Potential
+In this paper we have introduced two novel measures, chokepoint potential, on single border ASes,
+and national breakthrough potential, on entire nations, that together allow us to
+evaluate the level of difficulty that a government faces when trying to censor the Internet
+based entirely on AS-level topology. Our technique for evaluating AS-level topology using
+\toolname{} provides a monitoring capability of BGP dynamics that was previously not possible.
+We have taken advantage of efficient simulation, standard AS relationship datasets, and cross-platform
+design principles so that this tool is readily deployable for future research.
+% Ecolution over time
+\par
+Our application of \toolname{} to investigate evolution of the global AS graph over time shows us
+interesting trends in AS topologies. We have identified the apparent lack of major nations to develop
+more open Internet borders and gateways, despite the increasing connectivity and size of the AS graph. Additionally,
+we find that the chokepoints in some nations known to conduct censorship and surveillance have increased in strength.
+% Internet Freedom
+\par
+We have validated national breakthrough potential as having a relationship to actual censorship by showing
+the significance of the relationship between the chokepoint potential of nations and the evaluations of freedom provided
+by both freedom on the net and freedom of the press. This relationship implies that when censorship and surveillance are being evaluated
+at the national level, it is worthwhile to consider the border AS chokepoints that are resident to the nation in question.
