@@ -11,8 +11,7 @@ CAIDA~\cite{CAIDA}.  It also takes as input a set of AS
 country codes (that identifies which nation an AS belongs to) for
 determining chokepoint potential.  \toolname{}
 uses an algorithm based on BGPSim \cite{quicksand} to
-generate a set of routing trees. \Ben[inline]{Need a short description of how
-BGPSim works, maybe below.}. \toolname{} 
+generate a set of routing trees. \toolname{} 
 calclates both AS and national chokepoint potential for any country.
 
 Our experiments used country codes returned from Team Cymru's IP to
@@ -38,15 +37,13 @@ hole in the data.
 \par To calculate the routing trees, we use an extended version of the
 BGPSim algorithm developed by Gil et. al in \cite{quicksand}. This
 component of \toolname{} addresses several limitations that prevented
-us using BGPSim directly: (1) BGPSim returns a set of ASes for each
-path it considers but not the order in which they are visited; (2)
+us using BGPSim directly: (1) BGPSim was not used to test statistics on paths, so it
+doesn't return ordered paths for calculating AS-level statistics; (2)
 Once routing trees are determined, they cannot be accessed later
 without recalculation; (3) BGPSim relies on the outdated
 parallelization framework DryadLinq for C\#. To address these issues,
 we implemented our routing simulation in
-Python. \Ben[inline]{Why does BGPSim not return ordered paths, this
-  seems trivial, but I don't know the implementation details, was it
-  just an oversight or did you do something cool?}\toolname{} returns
+Python. \toolname{} returns
 ordered paths from its routing trees, saves routing trees to disk
 after calculation, and is parallelized with MPI via the mpi4py
 library. These improvements have the added benefit of yielding a cross
@@ -59,8 +56,11 @@ hardware. The source code for \toolname{} and all datasets are publicly availabl
 determine chokepoint potentials or by other researchers interested in other questions. To calculate chokepoint potential, \toolname{} iterates over every path
 between each AS-pair. Because we use the same random tie-break method as BGPSim,this process returns 
 exactly one path between each AS-pair considered, even if multiple options exist in the
-routing tree.\Ben[inline]{Put stuff in about tiebreaking being rare and
-unlikely to affect results} Once the path has been determined, it is traversed to identify border nodes and increment their counts, both
+routing tree. Tiebreaks do not have a noticable effect on our results. For instance, the maximum
+standard deviation for the chokepoint potential of any AS in 5 runs of one of our timestamps was 
+$\leq$ 0.005, meaning the chokepoint potentials for each AS barely changed depending on the tiebreak
+decisions.
+Once the path has been determined, it is traversed to identify border nodes and increment their counts, both
 for outgoing and incoming paths.  Thus, only one traversal is conducted
 per path. Additionally, the number of paths of each type that belong to each
 nation is tallied. \toolname{} takes the resulting chokepoint
