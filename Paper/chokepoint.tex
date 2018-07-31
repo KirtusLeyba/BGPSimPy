@@ -64,9 +64,9 @@ We define a BGP path of length $n$ from source AS $a_0$ to destination AS $a_n$
 as a sequence $p_{1\rightsquigarrow n} = \{a_i : i \in [1,n]\}$.  We define a
 \textit{routing tree} to be a tree rooted at a single destination AS and
 composed of every acceptable BGP path from the various source ASes that can
-reach the destination AS.\Ben[inline]{Is this always a tree? Seems like it
-could be a DAG sometimes (especially if random choices are made). Also do we
-need to define routing trees if we only really work on the path}  The
+reach the destination AS. Note that if multiple paths exist from a source
+to a destination, the routing tree is technicailly a DAG, but we use the traditional convention and call
+all such data structures routing trees. The
 chokepoint potential of a border AS is the ratio of the number of paths in (or out of) the country that contain the border AS to
 the total number of paths in (or out of) the same country.
 %intercepted by all border ASes belonging to
@@ -99,18 +99,10 @@ Equation~\ref{eq:chokepoint}.
 %in the country in question) and out-to-in paths.
 The incoming chokepoint
 potential for a nations is illustrated in \figurename
-\ref{fig:chokepoint}.
-
-\Ben[inline]{A couple of questions here. Why mess with incoming (out to in) and
-outgoing (in to out) measures? Can we just define it as $\frac{|p_{in}| +
-|p_{out}|}{|P_{in}| + |P_{out}|}$, that is the incoming and outgoing paths over
-the total paths? Would this be that much different? Is there are an argument to
-be made that out-to-in or in-to-out is a better? My guess is they are all
-pretty correlated, I can check on that}.
-% Formal Definition
-%\begin{equation}\label{eqn:chokePointPotential}
-%CP(b) = \frac{|\{p \in P_c \textrm{ s.t. } \{b\} \subseteq B_p\}|}{\sum_{p \in P_c}|B_p|}
-%\end{equation}
+\ref{fig:chokepoint}. We define both $cpo$ and $cpi$ because past work
+has revealed that country-level paths are often asymmetric, meaning that the
+forward path from AS $a$ to AS $b$ does not necessarily match the reverse path
+\cite{characterizingAndAvoiding}.
 
 % SF says 'paths' in response to Ben
 Given a set of BGP paths, chokepoint potential is an intuitive way to
