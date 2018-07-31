@@ -1,38 +1,37 @@
 \section{Experimental Results}
 
-In this section we present the results of several experiments aimed at
-answering the questions presented in Section~\ref{sec:exp}. 
+This section reports results for experiments aimed at
+answering the three research questions described in Section~\ref{sec:exp}. 
 
-\subsection{National Chokepoint Potential} 
+\subsection{National Chokepoint Potential (NCP)} 
 
-	We have chosen to detail the results of our national chokepoint potential
-experiment for 8 nations due to
-their histories of censorship practice. First we have chosen 4 nations known to
-enact extensive Internet censorship policies. These nations are China, Turkey,
-Egypt, and Russia. China has historically been the number one nation in regards
-to Internet censorship \cite{censorshipSurvey}. Turkey has recently
-dramatically increased its online censorship efforts, by blocking social media
-accesses during turmoil and pressuring ISPs to block access to material chosen
-by the Turkish government \cite{turkeyCensor}. The Internet of Egypt suffered
-severe shutdowns during the Arab Spring of the early 2010s \cite{arabspring}.
-The Russian government has passed surveillance laws requiring ISPs to allow the
-Russian government access to user statistics \cite{censorshipGeography}. Next
-we have chosen the nations of Germany, the United States, France, and the
-United Kingdom because, while they have all conducted limited forms of Internet
-censorship \cite{censorshipSurvey}, Internet access for these nations is
-considered somewhat open.
+We report results for eight countries, some that are known to practice censorship and some that are considered more open.
+We selected four well-known countries with
+extensive Internet censorship policies: China, Turkey,
+Egypt, and Russia. China has historically been the most aggressive in terms of
+Internet censorship \cite{censorshipSurvey}. Turkey recently
+began blocking social media
+accesses during turmoil and pressuring ISPs to block access to certain material~\cite{turkeyCensor}. Egypt's Internet suffered
+severe shutdowns during the Arab Spring \cite{arabspring}.
+Russian has passed surveillance laws requiring ISPs to provide access to user statistics \cite{censorshipGeography}. 
+We also selected Germany, the United States, France, and the
+United Kingdom because Internet access for these nations is
+considered to be open even though they each have conducted limited Internet
+censorship \cite{censorshipSurvey}, 
 	
-We present the national chokepoint potentials for these nations in 2018 with increasing
-$f$ in \figurename \ref{fig:nationsCompare}. For each value of $f$, (on the x-axis),
-the naitonal chokepoint potential, the inverse of the number of ASes needed to intercept
-the fraction $f$ of paths is plotted. For all results we detail only the in-to-out results
-because we find little difference between the results for in-to-out paths and out-to-in paths
-for all our experiments.
+\figurename~\ref{fig:nationsCompare} shows national chokepoint
+potential for 2018 for different values of $f$ (x-axis). The
+y-axis reports the inverse of the number of ASes required to control fraction $f$ of
+paths. We report only in-to-out results
+because the results for out-to-in are very similar
+for all experiments.  \figurename~\ref{fig:nationsCompare} shows the diverse nature of national topologies. China is one
+extreme, where over 80\% of paths can be controlled by a single AS,
+%as indicated
+%by a NCP of 1.0.
+Other nations exhibiting strong chokepoints are Egypt, Turkey, and the United Kingdom. The
+nations of the US, France, Germany, and Russia show considerably lower NCP for 2018.  These results are as expected, except for Russia. As an early adopter of the Internet, we speculate that Russia's AS topology evolved before stringent regulations were adopted and this early history dominates our measurements.  
 
-\figurename \ref{fig:nationsCompare} shows us the diverse nature of national topologies. China is one
-extreme example, where upto more than 80 percent of paths can be intercepted by a single AS, as indicated
-by a NCP of 1.0. Other nations exhibiting strong chokepoints are Egypt, Turkey, and the United Kingdom. The
-nations of the US, France, Germany, and Russia show considerably lower NCP for 2018.
+
 
 \begin{figure}[ht]
 	\centering
@@ -41,7 +40,7 @@ nations of the US, France, Germany, and Russia show considerably lower NCP for 2
 	fraction of paths used to calculate the national chokepoint potential.}\label{fig:nationsCompare}
 \end{figure}
 
-\subsection{Nations Over Time}
+\subsection{Topology Over Time}
 
 \begin{figure}
 	\centering
@@ -56,93 +55,87 @@ nations of the US, France, Germany, and Russia show considerably lower NCP for 2
 \begin{figure*}
 	\centering
 	\includegraphics[width=\textwidth]{multi}
-	\caption{The capability for various nations to intercept in-to-out paths over multiple years \timerange. Each plot shows for a number of border ASes controlled (x-axis),
-	what fraction of in-to-out paths are intercepted (y-axis). Years in blue are more recent, and years in red are further in the past.}\label{fig:multiTime}
+	\caption{Chokepoint potential (in-to-out) for multiple years
+          \timerange. Each plot shows the number of border ASes
+          controlled (x-axis) vs. $f$ (y-axis).}\label{fig:multiTime}
 \end{figure*}
 
-To inspect the changes over time for each nation we arrange all the border ASes
-belonging to a nation into a list. The list of border ASes is reverse sorted so
-that the first AS has the highest chokepoint potential. The sum of all these
-chokepoint potentials is 1.0. Then we step through the list, and record the
-cumulative chokepoint potential of all the ASes seen so far. If we plot the
-number of ASes controled vs the cumulative chokepoint potential for that number
-of ASes, we can see how many ASes are required for a certain nation to control
-different percentages of paths. We repeat this process for each snapshot to
-highlight changes over time.
+To study changes over time, we first plotted the
+number of border ASes required to intercept 90\% of in-to-out paths
+for each year (\figurename \ref{fig:nodesFree} and \figurename
+\ref{fig:nodesCensor}).  The results are striking with a steep decline
+over time for some nations (China and Turkey) and increases for others
+(Germany and France), while some countries remained relatively
+stable. Given that the overall number of ASes and paths has increased
+globally over time, it is likely that even nations that look stable
+have in fact become more 'chokepointy' over time as some border nodes
+must be intercepting more paths.  This fact makes the decline observed
+for some countries even more striking.
 
-For instance, consider \figurename \ref{fig:multiTime}.  The x-axis (log-scale,
-so that countries with large differences in AS counts can be compared more
+Next, for each country studied we sorted its border ASes so
+that the first AS has the highest chokepoint potential.
+%The sum of all these
+%chokepoint potentials is 1.0.
+Then, we calculated the cumulative chokepoint potential
+%we step through the list, and record the
+%cumulative chokepoint potential of all the ASes seen so far. If we
+and plotted the
+number of border ASes controlled vs cumulative chokepoint potential for each year in the study,
+%This shows how many ASes are required to control a given
+%percentage of paths.
+as shown in
+\figurename \ref{fig:multiTime}.  The x-axis (log-scale,
+so countries with large differences can be compared more
 easily) for each plot is the number of border ASes controlled, and the y-axis
-is the ratio of in-to-out paths intercepted. Each line represents a different
-snapshot, with the more red lines being farther in the past and more blue lines
-being more recent.
+is the fraction of in-to-out paths intercepted. Each line represents a different
+year.
+%, with the more red lines being farther in the past and more blue lines
+%being more recent.
 
-The United States and China are shown here and exhibit some dramatic
-differences. First, it is worth pointing out that the United States has many
-more ASes than China, hence its line extends further to the right in these
-plots. We also see that China, in all cases, can control a much larger portion
-of its paths with much fewer ASes than the United States. This result is
-entirely expected. Of more interest is the trends that can be seen over time.
-The AS-level topology of China's Internet has evolved such that very few ASes
-can intercept nearly all BGP paths. The US has evolved in a different way.
-While it has become somewhat easier for the US to intercept most of its paths,
-it has become more difficult to intercept around 70\% of its paths and higher.
-This suggest an expansion of ASes on the interior and more connections, as well
-as a strengthening of the very top ASes.
-
-Not all nations have evolved to a state where it easier to control paths. One
-example is Germany, as shown in \figurename \ref{fig:multiTime}. For Germany, a
-fairly constant trend shows that it has become more difficult to intercept BGP
-paths. Unlike the other examples, any amount of German border ASes intercept
-less paths in more recent tests.
-
-In order to compare multiple nations, we have plotted the number of ASes needed
-to intercept 90\% of in-to-out paths for each timestamp recorded. These results
-are detailed in \figurename \ref{fig:nodesFree} and \figurename
-\ref{fig:nodesCensor}.  The distinct behaviors of each nation are rather
-striking. We can see a steep decline for some nations known to limit Internet
-freedom (China and Turkey) as well as the increase for other nations (Germany
-and France). Other nations have stayed more stable. It is worth pointing out
-that if a nation has required the same number of border ASes to control many
-paths over several years, this suggests that the chokepoints have grown to
-intercept more paths. The reason for this is that the number of ASes, and thus
-the number of paths, has increased globally over time. This fact makes the
-decline in ASes needed for some nations even more glaring.
-
+The U.S. and China exhibit dramatic differences. The U.S. has many
+more ASes than China, so its line extends further to the right in the
+plots. In all cases, China can control a much larger portion of its
+paths with fewer ASes than the U.S., as expected. More interesting are
+the trends over time.  China's topology has evolved such that very few
+ASes can intercept nearly all BGP paths. For The U.S. it has become
+somewhat easier to control most of its paths but more difficult to
+intercept around 70\% of its paths and higher (yellow lines crossing
+green lines).  This suggest an expansion of interior ASes with more
+connections, as well as a strengthening of the very top ASes.
+Not all nations have developed higher chokepoint potential, e.g., Germany shows a trend
+in the opposite direction, which persists for any level of border ASes.
 
 \subsection{Internet Freedom}
 
-In our test of the relationship between Internet Freedom and national
-breakthrough potential, we plotted the Freedom on the Net score of each nation
-vs the number of border ASes that that nation needed to in order to intercept
-90\% of in-to-out paths. Additionally, we evaluated the relationship with an
-Ordinarly Least Squares (OLS) fit, and found that the relationship was
-statistically significant, with a p-value $\leq$ 0.002 for 2017. The
-relationship held for other timestamps as well. The results for 2017 are shown
-in figure \ref{fig:fotn}
+To test the correlation between Internet Freedom and NCP, we plotted
+FOTN scores vs. the number of border ASes required to intercept 90\% of in-to-out
+paths and computed the Ordinary
+Least Squares (OLS) fits, finding that the relationship is
+statistically significant (e.g., p-value $\leq$ 0.002 for 2017). The
+relationship held for other years, and 
+Fig. \ref{fig:fotn} shows a representative result (2017).  The relationship also holds for Freedom of the Press scores compared to NCP (Fig. \ref{fig:fotp}), p-value $\leq XXX$.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{fotn}
-	\caption{The National Breakthrough Potential (in-to-out) for nations plotted against the FOTN score
-	of those nations in 2017. A higher FOTN score indicates a less free nation. Our OLS fit is also plotted.}\label{fig:fotn}
+	\caption{National Chokepoint Potential (in-to-out) vs. FOTN score
+	for 2017. Higher FOTN scores indicate less freedom. The OLS fit is also plotted.}\label{fig:fotn}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{fotp}
-	\caption{The National Breakthrough Potential (in-to-out) for nations plotted against the FPI
-	of those nations in 2017. A higher FPI indicates a less free nation. Our OLS fit is also plotted.}\label{fig:fotp}
+	\caption{The National Chokepoint Potential (in-to-out) vs. FPI
+	2017. Higher FPI indicates less freedom. The OLS fit is also plotted.}\label{fig:fotp}
 \end{figure}
 
-For each timestamp we see what appears to be two general modes of behavior.
-Nations that are not free or partly free tend to requrie few ASes to intercept
-90\% of their paths. Free nations on the otherhand require varying degrees of
-large numbers of ASes to control the same portion of their paths. There are
-interesting outliers for both situations, however. Countries like Estonia (EE)
-or Iceland (IS) are very free but require few border ASes to control most of
-their paths. The reason for these outliers is likely that their overall AS
-counts are very low. On the other hand, Russia (RU) is a very interesting
-outlier in that it is found to be not free by FOTN, but requires a large number
-of ASes to control most of its paths. This suggests that the censorship efforts
-in Russia might be of types that do not require AS level chokepoints.
+For each year there appear to be two general modes.  Nations that are
+not free or partly free tend to have high NCP, while free nations have
+variable NCPs. There are interesting outliers for both situations,
+however. Countries like Estonia (EE) or Iceland (IS) are very free but
+require few border ASes to control most of their paths. This is likely
+because their overall AS counts are low. As we saw earlier, Russia
+(RU) is considered not free by FOTN, but requires a large number of
+ASes to control most of its paths. This suggests that censorship
+in Russia is implemented without AS-level
+chokepoints.
