@@ -63,8 +63,7 @@ routing tree.\Ben[inline]{Put stuff in about tiebreaking being rare and
 unlikely to affect results} Once the path has been determined, it is traversed to identify border nodes and increment their counts, both
 for outgoing and incoming paths.  Thus, only one traversal is conducted
 per path. Additionally, the number of paths of each type that belong to each
-nation is tallied, which becomes the denominator in equation
-\ref{eqn:chokePointPotential}.  \toolname{} takes the resulting chokepoint
+nation is tallied. \toolname{} takes the resulting chokepoint
 potentials and generates national chokepoint potentials for each nation.
 
 Calculating routing trees for the entire AS graph takes time proportional to the $|V|^2$ where $|V|$ is the total number of ASes; calculating chokepoint potential takes $|V|^2D$ where $D$ is the average depth of a routing tree. For example,
