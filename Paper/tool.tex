@@ -19,16 +19,20 @@ Our experiments used country codes returned from Team Cymru's IP to
 ASN whois service \cite{cymru} to determine which ASes were registered
 to which nation.  This service maintains only the most recent
 registration of each AS.  To control for this possible source of
-error, we retain ASes in thepath simulation, even if they were
-registered more recently than the current timestamp being studied, but
-we do not assign these ASes chokepoint potentials. We took this approach
+error, we retain ASes in the path simulation, even if they were
+registered more recently than the current timestamp being studied. This is because
+the relationships of these ASes and paths through these ASes are still valid.
+We do not assign these ASes chokepoint potentials, as it is not clear which nation
+these ASes are registered for. We took this approach
 because the datasets of AS registrations for the various ASN
 registries tend to have more missing data at specific timestamps.
-Fortunately, ASes with registration changes after each test date tend
-to not be in the AS graph for that test. \Ben[inline]{Two things. 1)
-  This is sort of confusing, see if you can clarify it. 2) Is this a
-  big deal? How often does this happen? If it happens frequently do we
-  expect it to affect our results? }
+We do not expect this to have a considerable effect on our results
+because few ASes do not have a definite nation (in the best case in the most recent
+test this is less than 1\% of ASes, in the worst case in the earliest test this is around 12\% of ASes.)
+Additionally, not all of the ASes that are unlinked to a nation are border ASes, and those will not
+affect our results at all. Furthermore, it is unlikely that this small portion of ASes will be a majority
+of border ASes for any single country, so the country level experiments are unlikely to suffer from this
+hole in the data.
 
 % Routing Tree Algorithm
 \par To calculate the routing trees, we use an extended version of the
