@@ -1,8 +1,10 @@
 \section{Background}
 
-The AS-layer is the highest level of organization of the Internet, with each
-individual AS represents a separately administered network, for example, a
-large ISP, a university network, or a government entity. The Border Gateway
+% We already said this in the introductino
+%The AS-layer is the highest level of organization of the Internet, with each
+%individual AS represents a separately administered network, for example, a
+%large ISP, a university network, or a government entity.
+The Border Gateway
 Protocol (BGP) is used to route traffic among ASes \cite{bgp}.  AS-level routes
 are known as \emph{paths} and are specified by routing tables stored locally in
 each AS. These tables express known connections to other ASes and local
@@ -11,55 +13,53 @@ single destination, an AS may prefer the path that costs the least.
 
 Because BGP is a distributed protocol, with all connectivity
 information stored in the local routing tables, it is challenging to
-infer the exact AS topology at any point in time.  Several strategies have been 
-developed to infer AS topology, each with advantages and drawbacks.  Methods that rely
-on routing table information and BGP
-updates suffer from the fact that BGP paths stored in routing tables
-reflect only the current knowledge of a single AS about the routes
-available~\cite{BGPStream}.
+infer the exact AS topology at any point in time.  Several strategies
+have been developed, each with advantages and drawbacks. For example,
+methods based on empirical traceroute data are known to be incomplete
+or inaccurate~\cite{tracerouteProblems}. Similarly, methods that rely
+on routing table information reflect only the current knowledge of a
+single AS, or small set of ASes, about available
+routes~\cite{BGPStream}, and they rely on ASes that are willing to
+share their routing table information.  Many such ASes are required
 % FIXME: Not sure what BGPStream citation is for.  We need a different citation for RIPE unless that is what BGPStream is.
-Many sources are needed to infer a complete picture of the BGP topology using local tables. 
-This approach does not scale for
-global studies, particularly those looking at the evolution of the
-topology over time.
-Similarly, methods based on empirical traceroute data are known to be 
-incomplete or inaccurate~\cite{tracerouteProblems}.
+to infer a reliable picture of the BGP topology, an approach that does not scale well for global studies over time. 
 
 \par AS-level studies are further complicated by the lack of ground
 truth data for AS relationships and BGP paths. Two ASes might enter a peering relationship,
-exchanging traffic but not announcing their connection. For AS relationships,
-inference is often used based on economic considerations to classify
-the relationships of ASes. This was first done by Gao \cite{gao} by
-maximizing the occurrences of certain economic rules on the AS graph by
-choosing a particular set or relationships. This technique was only
-evaluated against a single ISPs set of true relationships, however. As
-part of the CAIDA project, this inference technique was extended,
+exchanging traffic but not announcing their connection. For AS relationships such as these, economic models are often used to classify
+the relationships of ASes. This approach was pioneered by Gao \cite{gao}, who
+assigned AS relationships that optimized certain economic rules on the AS graph.
+%This technique was only
+%evaluated against a single ISPs set of true relationships, however. As
+This inference technique was extended by the CAIDA project,
 leading to the CAIDA AS-relationship dataset \cite{CAIDApaper},
-\cite{CAIDA}. We choose these relationships for our purposes, and they
-are the current research standard.
+\cite{CAIDA}, which are the current research standard.
+%We choose these relationships for our purposes, and they
+%are the current research standard.
 
-\par Finding BGP paths is more of
-a challenge. BGP paths are not simply the shortest paths available on the
+\par Knowing the AS topology and AS relationships is critical for finding BGP paths, but it is not sufficient because BGP does not always adopt
+the shortest paths available on the
 AS graph. Instead, they are determined by a combination of the dynamics of
 BGP updates between ASes and the local preferences of each AS to route traffic
-to destinations according to the policy of the AS administrator. 
-Packet based simulations, wherein BGP is simulated
-directly, are computationally infeasible for the scales relevant to a
-global study. An accurate, but realistic, simulation technique must be
-chosen to provide useful research potential in this regard.  The
-BGPSim algorithm \cite{quicksand} is one such simulation technique
-that is suitable for this study's purposes. BGPSim takes a set of AS
-relationships as input, such as those provided by the CAIDA dataset
-\cite{CAIDA}, and returns routing trees based off of these
-relationships. These paths are found via a modified breadth-first
+to destinations according to local AS policies.
+%Packet based simulations, wherein BGP is simulated
+%directly, are computationally infeasible for the scales relevant to a
+%global study.
+BGPSim is a realistic, simulation technique developed to infer likely BGP paths.~\cite{quicksand}. BGPSim takes as input a set of AS
+relationships, such as those provided by the CAIDA dataset
+\cite{CAIDA}, and returns routing trees based on these
+relationships. A routing tree contains all
+equally reasonable paths (according to economic and connectivity constraints) that between source ASes (within the routing tree) to destination ASes (the
+root of the routing tree). These paths are found using a modified breadth-first
 search (BFS) algorithm. The BFS adds edges to routing trees first
 according to local preference (LP), then shortest path (SP), and
-finally tiebreak (TB).  A resulting routing tree contains all the
-equally reasonable paths (according to economic concerns) that exist
-between source ASes (within the routing tree) to destination ASes (the
-root of the routing tree). We find this technique suitable \Ben[inline]{Why is it suitable?} for our
-purposes. We use the basic approach of BGPSim (in ways explained further in this
-paper) as part of \toolname{}.
+finally tiebreak (TB).
+%We find this technique suitable \Ben[inline]{Why is it suitable?} for our
+%purposes.
+We adopt the basic algorithm of BGPSim
+%(in ways explained further in this
+%paper)
+as part of \toolname{}.
 
 \Ben[inline]{We need to discuss not only the background of BGP routing here, but 
 also background about surveillance and censorship. We could probably shorten/tighten
