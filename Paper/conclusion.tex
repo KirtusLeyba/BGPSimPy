@@ -44,22 +44,28 @@ censorship events and chokepoint potential changes, and as such lies beyond the 
 
 \section{Conclusion}
 % Chokepoint Potential
-In this paper we have introduced two novel measures, chokepoint potential, on single border ASes,
-and national breakthrough potential, on entire nations, that together allow us to
-evaluate the level of difficulty that a government faces when trying to censor the Internet
-based entirely on AS-level topology. Our technique for evaluating AS-level topology using
-\toolname{} provides a monitoring capability of BGP dynamics that was previously not possible.
+This paper addresses the question of how Internet structure relates to 
+international boundaries and how it is changing over time.  By defining chokepoint
+potential, both for individual border ASes and aggregated by country,
+we provide a quantitative way to measure these effects in terms of the ease
+with which a government can control routing paths across its borders. 
+Our technique for generating BGP paths and evaluating chokepoints
+using \toolname{} provides public domain software and routing trees for the entire AS graph.
+%a monitoring capability of BGP dynamics that was previously not possible.
 We have taken advantage of efficient simulation, standard AS relationship datasets, and cross-platform
-design principles so that this tool is readily deployable for future research.
+design principles so that this tool will be readily deployable for future research.
 % Ecolution over time
-\par
-Our application of \toolname{} to investigate evolution of the global AS graph over time shows us
-interesting trends in AS topologies. We have identified the apparent lack of major nations to develop
-more open Internet borders and gateways, despite the increasing connectivity and size of the AS graph. Additionally,
-we find that the chokepoints in some nations known to conduct censorship and surveillance have increased in strength.
+\par We used \toolname{} to investigate how the global AS graph has
+evolved over time, finding interesting trends and outliers. These
+studies reveal a tendency in large nations to concentrate paths across
+their borders into a small number of ASes, despite the increasing
+connectivity and size of the AS graph. Additionally, we find that border
+chokepoints in some nations known to conduct censorship and
+surveillance have steadily increased in strength.
 % Internet Freedom
 \par
-We have validated national breakthrough potential as having a relationship to actual censorship by showing
-the significance of the relationship between the chokepoint potential of nations and the evaluations of freedom provided
-by both freedom on the net and freedom of the press. This relationship implies that when censorship and surveillance are being evaluated
-at the national level, it is worthwhile to consider the border AS chokepoints that are resident to the nation in question.
+We studied the relationship between NCP and two evaluations of openness, Freedom of the Net  and Freedom of the press, finding stastistically significant relationships in both cases.
+%These results suggest that it is worthwhile to consider border AS chokepoints when studying
+This relationship implies that when censorship and surveillance are
+being evaluated at the national level, it is worthwhile to consider
+the border AS chokepoints that are resident to the nation in question.
