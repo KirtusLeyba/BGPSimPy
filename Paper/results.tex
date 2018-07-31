@@ -3,27 +3,46 @@
 In this section we present the results of several experiments aimed at
 answering the questions presented in Section~\ref{sec:exp}. 
 
-\Ben[inline]{We should answer the questions in the order we ask them. 1)
-National Chokepoint potential and implications. 2) Comparison among nations. 3)
-Evoluation over time.}
+\subsection{National Chokepoint Potential} 
 
-\subsection{National Chokepoint Potential}
+	We have chosen to detail the results of our national chokepoint potential
+experiment for 8 nations due to
+their histories of censorship practice. First we have chosen 4 nations known to
+enact extensive Internet censorship policies. These nations are China, Turkey,
+Egypt, and Russia. China has historically been the number one nation in regards
+to Internet censorship \cite{censorshipSurvey}. Turkey has recently
+dramatically increased its online censorship efforts, by blocking social media
+accesses during turmoil and pressuring ISPs to block access to material chosen
+by the Turkish government \cite{turkeyCensor}. The Internet of Egypt suffered
+severe shutdowns during the Arab Spring of the early 2010s \cite{arabspring}.
+The Russian government has passed surveillance laws requiring ISPs to allow the
+Russian government access to user statistics \cite{censorshipGeography}. Next
+we have chosen the nations of Germany, the United States, France, and the
+United Kingdom because, while they have all conducted limited forms of Internet
+censorship \cite{censorshipSurvey}, Internet access for these nations is
+considered somewhat open.
+	
+We present the national chokepoint potentials for these nations in 2018 with increasing
+$f$ in \figurename \ref{fig:nationsCompare}. For each value of $f$, (on the x-axis),
+the naitonal chokepoint potential, the inverse of the number of ASes needed to intercept
+the fraction $f$ of paths is plotted. For all results we detail only the in-to-out results
+because we find little difference between the results for in-to-out paths and out-to-in paths
+for all our experiments.
 
-\Ben[inline]{Include results here about general chokepoint potential,
-currently}. 
+\figurename \ref{fig:nationsCompare} shows us the diverse nature of national topologies. China is one
+extreme example, where upto more than 80 percent of paths can be intercepted by a single AS, as indicated
+by a NCP of 1.0. Other nations exhibiting strong chokepoints are Egypt, Turkey, and the United Kingdom. The
+nations of the US, France, Germany, and Russia show considerably lower NCP for 2018.
 
-	To evaluate national chokepoint potentials of each of these nations we
-plot from our \toolname{} generated results the 
-
-\subsection{Nations Over Time}
-
-
-\begin{figure}
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{nationsCompare}
 	\caption{The national chokepoint potentials of various nations in 2018. k is the
 	percentage of paths used to calculate the national chokepoint potential.}\label{fig:nationsCompare}
 \end{figure}
+
+\subsection{Nations Over Time}
+
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{NodesFree}
@@ -40,23 +59,6 @@ plot from our \toolname{} generated results the
 	\caption{The capability for various nations to intercept in-to-out paths over multiple years \timerange. Each plot shows for a number of border ASes controlled (x-axis),
 	what fraction of in-to-out paths are intercepted (y-axis). Years in blue are more recent, and years in red are further in the past.}\label{fig:multiTime}
 \end{figure*}
-
-We have chosen to detail the results of our national chokepoint potential
-experiment for 8 nations due to
-their histories of censorship practice. First we have chosen 4 nations known to
-enact extensive Internet censorship policies. These nations are China, Turkey,
-Egypt, and Russia. China has historically been the number one nation in regards
-to Internet censorship \cite{censorshipSurvey}. Turkey has recently
-dramatically increased its online censorship efforts, by blocking social media
-accesses during turmoil and pressuring ISPs to block access to material chosen
-by the Turkish government \cite{turkeyCensor}. The Internet of Egypt suffered
-severe shutdowns during the Arab Spring of the early 2010s \cite{arabspring}.
-The Russian government has passed surveillance laws requiring ISPs to allow the
-Russian government access to user statistics \cite{censorshipGeography}. Next
-we have chosen the nations of Germany, the United States, France, and the
-United Kingdom because, while they have all conducted limited forms of Internet
-censorship \cite{censorshipSurvey}, Internet access for these nations is
-considered highly open.
 
 To inspect the changes over time for each nation we arrange all the border ASes
 belonging to a nation into a list. The list of border ASes is reverse sorted so
