@@ -9,46 +9,53 @@
 %does this vary from nation to nation? Is the Internet developing more powerful
 %chokepoints, or becoming more evenly accessible?
 
-In this section we use chokepoint potential to examine three questions: 1) To
-what extent does the current state of the AS-level Internet topology support
-national governments' ability to censor and surveil Internet traffic and how does
-this ability vary across nations? 2) How has this ability
-evolved over time? and 3) How does our topological chokepoint measure correlate to
+This section describes how we used \toolname{} to study three questions related to national borders and the BGP network:
+(1) To
+what extent do BGP networks today reflect national boundaries
+%support
+%national governments' ability to censor and surveil Internet traffic and
+how do they vary across nations? (2) How has this structure evolved
+over time? and (3) How do topological chokepoints correlate with
 qualitative measures of Internet and press freedom?
 
-Our experiments begin with the CAIDA AS relationship dataset for a particular timestamp.
-These detail inferred relationships between ASes, with which we can use our simulation framework
-to generate routing trees and then calculates the chokepoint potentials for each AS. We use these 
-relationships to identify border ASes, and we use the Team Cymru ASN lookup service to map each AS to the 
-country with which it is registered. \toolname{} returns both the set of routing trees built via simulation
-and the chokepoint potential that was determined for each AS. The resulting data allows us to conduct
-multiple levels of analysis. The resulting chokepoint potentials allow us to compare nations in regards
-to what kind of border topology they have. We can answer whether many or few ASes are needed for a 
-particular nation to intercept a majority of BGP paths, for instance. We can also compare the results
-of experiments at different timestamps to monitor the evolution of a nation's national chokepoint potential,
-indicating trends toward stronger chokepoints or, alteratively, more open borders.
+All of our experiments used the relevant CAIDA AS relationship dataset for 
+each timestamp we studied.  These contain inferred relationships
+between ASes, which the simulation framework uses to
+generate routing trees and  calculate chokepoint potentials.
+We use the relationships to identify border ASes, and
+we use the Team Cymru ASN lookup service to map each AS to the country
+with which it is registered. \toolname{} returns both the set of
+routing trees built via simulation and the chokepoint potential that
+was determined for each AS. These data form the basis for
+multiple levels of analysis: comparing chokepoint potential between countries,
+assessing how many ASes are required to control most international BGP paths, 
+and comparing results across multiple time points.
+%timestamps to monitor the evolution of a nation's national chokepoint
+%potential, indicating trends toward stronger chokepoints or,
+%alteratively, more open borders.
 
 % Chokepoints and Internet Freedom
-If chokepoint potential can be leveraged to determine if a nation can
-intercept many BGP paths with few ASes, it is possible that there is some correlation between
-this ability and the Internet freedom of that nation. If a higher national chokepoint potential
-for a nation is related to a less free Internet or press, this indicates that topology is linked
-to censorship in some way, perhaps indicating that the flow of information through border ASes
-is an important factor in interpreting a nations ability to censor their traffic. While a causal
-direction cannot be inferred by such a relationship, it would strengthen the importance of chokepoint
-potential as a measure of the evolutionary direction of the Internet.
-
-We tested whether a significant relationship exists between our measure of
-national chokepoints and two qualitative evaluations of communications Freedom. For
-Internet Freedom we used the Freedom House's Freedom On The Net report
-\cite{FOTN}. FOTN scores quantify the level of Internet freedom in countries.
-Each country receives a numerical score from 0 (the most free) to 100 (the
-least free). We compare our results to the FOTN scores by ranking nations
-according to national breakthrough potential, particulary the number of border
-ASes required to intercept 90\% of paths for each nation and viewing these
-rankings against the FOTN scores. FOTN only includes 65 nations in the most recent
-report (2017), so we also compare our measure with Freedom of the Press, which assessed
-201 nations and territories.
+Chokepoints provide one leverage point for nations interested in censorship or surveillance.
+%potential can be leveraged to determine if a nation can
+%intercept many BGP paths with few ASes, it is possible that there is some correlation between
+Thus, we are interested in the extent to which the Internet freedom of a country correlates with its chokepoint potential.
+%If a higher national chokepoint potential
+%for a nation is related to a less free Internet or press, this indicates that topology is linked
+%to censorship in some way, perhaps indicating that the flow of information through border ASes
+%is an important factor in interpreting a nations ability to censor their traffic.
+Although correlation certainly does not imply a causal relation, correlations can highlight overall trends and even provide clues about how censorship might be implemented in countries that are known to control content.
+%direction cannot be inferred by such a relationship, it would strengthen the importance of chokepoint
+%potential as a measure of the evolutionary direction of the Internet.
+We tested the statistical relationship between national chokepoint potential
+and two relevant qualitative evaluations of freedom. First, we used
+Freedom House's Freedom On The Net report \cite{FOTN}. FOTN scores
+quantify the level of Internet freedom in countries.  Each country
+receives a numerical score from 0 (the most free) to 100 (the least
+free). We compare our results to FOTN scores (for years 2014-2017) by ranking nations
+according to the number of border ASes required to intercept 90\% of
+paths for each nation.  FOTN includes only 65 nations in the most
+recent report (2017), so we also compare to the Freedom of
+the Press evaluation (2014-2017), which assesses 201 nations and territories.
 
 % To probe these questions we first used our chokepoint evaluation technique to
 % investigate the national chokepoint potential of all nations for the current Internet as
