@@ -32,13 +32,20 @@ countries sought to control these movements by disconnecting
 in-country networks from the rest of the world \cite{BGPdisrupt}.
 These two factors, increasing dependence on the Internet and increased
 content monitoring, point to the need for improved tools and methods
-for studying worldwide Internet structure over time.  Current
-methods have primarily focused on the node level (individual ASes)
-rather than the country level\Steph[inline]{Josh Karlin and Jen Rexford papers are two exceptions and maybe there are more}, 
-they have not described how AS topology
-has changed over time with respect to national boundaries, and
-existing BGP simulation methods make it difficult to address 
-questions such as these efficienty and at scale.
+for studying worldwide Internet structure over time. Previous research has
+investigated country level AS topology \cite{DBLP:journals/corr/abs-0903-3218},
+focusing on how the global AS graph layout indicates that interdomain routing
+for many Internet users depends on the infrastructure of other nations. We take
+a different approach by developing a technique to monitor the amount of paths intercepted
+by border ASes, allowing us to compare nations according to how BGP paths enter and exit
+each nation.
+% Current
+% methods have primarily focused on the node level (individual ASes)
+% rather than the country level, 
+% they have not described how AS topology
+% has changed over time with respect to national boundaries, and
+% existing BGP simulation methods make it difficult to address 
+% questions such as these efficienty and at scale.
 
 \par
 In this paper, we focus on the Autonomous Systems (AS) level of the Internet.
@@ -50,7 +57,7 @@ The total size of the AS graph (The global network
 of all ASes) has grown from about 10,000 ASes in the early 2000s to over 60,000 today. 
 The structural properties of national subgraphs have evolved differently
 from nation to nation whether from economic decision making, infrastructural necessities, 
-or efforts to build a powerful censorship and surveillance network.\Ben[inline]{Need citations for economic, infrastructure, censorship}.
+or efforts to build a powerful censorship and surveillance network \cite{economicPeering, irancensor}.
 %The Autonomous Systems (AS) layer of the Internet has grown and changed dramatically over its history.
 %The locations and relationships of these ASes determine how many chokepoints
 %of AS-level routing exist and what strength these chokepoints have in regards to paths intercepted.
