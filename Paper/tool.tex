@@ -47,9 +47,8 @@ ordered paths from its routing trees, saves routing trees to disk
 after calculation, and is parallelized with MPI via the mpi4py
 library. These improvements have the added benefit of yielding a cross
 platform routing tree algorithm that is portable to most
-hardware.
+hardware. The source code for \toolname{} and all datasets are publicly available at [URL blinded for peer review].
 
-\Steph[inline]{Where is the code available?  What about the dataset of routing trees?  that is one of our big contributions.}
 
 % Chokepoint calculation
 \par Once \toolname{} generates the routing trees, they can be processed to
@@ -64,4 +63,5 @@ nation is tallied, which becomes the denominator in equation
 \ref{eqn:chokePointPotential}.  \toolname{} takes the resulting chokepoint
 potentials and generates national chokepoint potentials for each nation.
 
-\Steph[inline]{A brief complexity analysis, even just in words, would help, as woulddata on how long the computations take.  Complexity discussion here, timing data in Experiments?}
+Calculating routing trees for the entire AS graph takes time proportional to the $|V|^2$ where $|V|$ is the total number of ASes; calculating chokepoint potential takes $|V|^2D$ where $D$ is the average depth of a routing tree. For example,
+it took about 12 wall clock hours to compute all of the routing trees for the Jan. 2017 dataset, running on 4 Intel Xeon E5-2680 V4 CPUs.  For each dataset, this is a one-time cost because the routing trees are stored externally.  [URL blineded for peer review] 
