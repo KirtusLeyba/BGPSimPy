@@ -65,7 +65,7 @@ as a sequence $p_{1\rightsquigarrow n} = \{a_i : i \in [1,n]\}$.  We define a
 \textit{routing tree} to be a tree rooted at a single destination AS and
 composed of every acceptable BGP path from the various source ASes that can
 reach the destination AS. Note that if multiple paths exist from a source
-to a destination, the routing tree is technicailly a DAG, but we use the traditional convention and call
+to a destination, the routing tree is technically a DAG, but we use the traditional convention and call
 all such data structures routing trees. The
 chokepoint potential of a border AS is the ratio of the number of paths in (or out of) the country that contain the border AS to
 the total number of paths in (or out of) the same country.
@@ -83,7 +83,7 @@ $cp(\cdot)$, of a border AS $a_u$ with $g(a_u) = c$ is
 
 The above definition applies to paths originating in country
 $c$ and routing to a different country, which we will refer to as
-\textit{outgoing} chokepoint potential or $cpo$. We similarily define
+\textit{outgoing} chokepoint potential or $cpo$. We similarly define
 \textit{incoming} chokepoint potential or $cpi$, by redefining $P$ as $\{p_{i
 \rightsquigarrow j}: g(a_i) \neq c \text{ and } g(a_j) = c\}$. That is all
 paths originating outside of $c$ but terminating in $c$ and recomputing

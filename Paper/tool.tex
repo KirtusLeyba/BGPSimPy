@@ -12,7 +12,7 @@ country codes (that identifies which nation an AS belongs to) for
 determining chokepoint potential.  \toolname{}
 uses an algorithm based on BGPSim \cite{quicksand} to
 generate a set of routing trees. \toolname{} 
-calclates both AS and national chokepoint potential for any country.
+calculates both AS and national chokepoint potential for any country.
 
 Our experiments used country codes returned from Team Cymru's IP to
 ASN whois service \cite{cymru} to determine which ASes were registered
@@ -54,7 +54,7 @@ hardware. The source code for \toolname{} and all datasets are publicly availabl
 determine chokepoint potentials or by other researchers interested in other questions. To calculate chokepoint potential, \toolname{} iterates over every path
 between each AS-pair. Because we use the same random tie-break method as BGPSim,this process returns 
 exactly one path between each AS-pair considered, even if multiple options exist in the
-routing tree. Tiebreaks do not have a noticable effect on our results. For instance, the maximum
+routing tree. Tiebreaks do not have a noticeable effect on our results. For instance, the maximum
 standard deviation for the chokepoint potential of any AS in 5 runs of one of our timestamps was 
 $\leq$ 0.005, meaning the chokepoint potentials for each AS barely changed depending on the tiebreak
 decisions.
@@ -65,4 +65,4 @@ nation is tallied. \toolname{} takes the resulting chokepoint
 potentials and generates national chokepoint potentials for each nation.
 
 Calculating routing trees for the entire AS graph takes time proportional to the $|V|^2$ where $|V|$ is the total number of ASes; calculating chokepoint potential takes $|V|^2D$ where $D$ is the average depth of a routing tree. For example,
-it took about 12 wall clock hours to compute all of the routing trees for the Jan. 2017 dataset, running on 4 Intel Xeon E5-2680 V4 CPUs.  For each dataset, this is a one-time cost because the routing trees are stored externally.  [URL blineded for peer review] 
+it took about 12 wall clock hours to compute all of the routing trees for the Jan. 2017 dataset, running on 4 Intel Xeon E5-2680 V4 CPUs.  For each dataset, this is a one-time cost because the routing trees are stored externally.  [URL blinded for peer review] 
