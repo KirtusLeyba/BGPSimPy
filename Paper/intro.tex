@@ -6,7 +6,7 @@
 As routine
 tasks, communications, entertainment, and information move online and
 are mediated by the Internet, most of us have little choice about
-whether or not to rely on the Internet.  According to the
+whether or not to rely on it.  According to the
 International Telecommunication Union (ITU), the number of individual
 Internet users increased from 1.024 billion in 2005 to 3.578 billion
 in 2017 \cite{itu}. The majority of these users operate in an
@@ -35,8 +35,8 @@ content monitoring, point to the need for improved tools and methods
 for studying worldwide Internet structure over time. Previous research has
 investigated country level AS topology \cite{DBLP:journals/corr/abs-0903-3218},
 focusing on how the global AS graph layout indicates that interdomain routing
-for many Internet users depends on the infrastructure of other nations. We take
-a different approach by developing a technique to monitor the amount of paths intercepted
+for many Internet users depends on the infrastructure of other nations. Here we take
+a different approach, presenting a technique to monitor the of paths intercepted
 by border ASes, allowing us to compare nations according to how BGP paths enter and exit
 each nation.
 % Current
@@ -48,15 +48,15 @@ each nation.
 % questions such as these efficienty and at scale.
 
 \par
-In this paper, we focus on the Autonomous Systems (AS) level of the Internet.
-Autonomous Systems are groups of routers under common management, such as the network of
+In this paper, we focus on the AS level of the Internet.
+ASes are groups of routers under common management, such as the network of
 a university or an Internet Service Provider (ISP).
 %The change in national AS topologies 
 %is of interest to censorship research.
 The total size of the AS graph (The global network 
 of all ASes) has grown from about 10,000 ASes in the early 2000s to over 60,000 today. 
 The structural properties of national subgraphs have evolved differently
-from nation to nation whether from economic decision making, infrastructural necessities, 
+from nation to nation, whether from economic decision making, infrastructural necessities, 
 or efforts to build a powerful censorship and surveillance network \cite{economicPeering, irancensor}.
 %The Autonomous Systems (AS) layer of the Internet has grown and changed dramatically over its history.
 %The locations and relationships of these ASes determine how many chokepoints
@@ -66,24 +66,26 @@ governments, points to the importance of understanding properties like
 path robustness, AS hierarchies, and the potential for organizations to
 control information as it flows in and out of their networks.
 
-\par Every nation has a different layout and number of ASes, and these
-national networks connect to foreign ASes in unique ways. Considering
-just censorship and surveillance, different nations use different
-strategies for this form of content monitoring. For instance, China
-both conducts keyword filtering in border ASes and in internal
-provincial ASes \cite{chinafiltering}, while Iran routes its Internet
-traffic through a centralized facility \cite{irancensor}.  A picture
-of a nation's content monitoring capabilities then is not complete
-without examining its underlying AS topology.  Having the ability to
-investigate the AS topology of a nation will both help researchers
-identify nations that could, for example, easily conduct censorship
-and also provide possible insight into what kind of censorship is
-likely being conducted.  More generally, we are interested in the extent to which the Internet is changing from a borderless structure into one that reflects national boundaries. 
+\par Every nation has a different number and organization of ASes, and
+these national networks connect to foreign ASes in unique
+ways. Considering just censorship and surveillance, different nations
+use different strategies for this form of content monitoring. For
+instance, China conducts keyword filtering in both border ASes and
+internal provincial ASes \cite{chinafiltering}, while Iran routes its
+Internet traffic through a centralized facility \cite{irancensor}.  A
+picture of a nation's content monitoring capabilities then is not
+complete without examining its underlying AS topology.  Having the
+ability to investigate the AS topology of a nation will both help
+researchers identify nations that could, for example, easily conduct
+censorship and also provide possible insight into what kind of
+censorship is likely being conducted.  More generally, we are
+interested in the extent to which the Internet is changing from a
+borderless structure into one that reflects national boundaries.
 
 %We examine how censorship and surveillance might be conducted 
 %at the AS-level by
-We focus on border ASes, or ASes that can connect directly to at least
-one AS from another nation and introduce a measure called \emph{chokepoint potential}, which quantifies the percentage of BGP paths into or out of a country which pass through that AS.  At the country level, we are interested in aggregating chokepoint potential in different ways to quantify the tendency of all BGP paths crossing the border to pass through a small (or large) number of chokepoints (border ASes). We sometimes refer to this as \emph{national chokepoint potential}.
+We focus on border ASes, i.e. ASes that can connect directly to at least
+one AS from another nation and introduce a measure called \emph{chokepoint potential}, which quantifies the percentage of BGP paths into or out of a country that pass through the AS.  At the country level, we are interested in aggregating chokepoint potential in different ways to quantify the tendency of all BGP paths crossing the border to pass through a small (or large) number of chokepoints (border ASes). We  refer to this as \emph{national chokepoint potential (NCP)}.
 %We can then aggregate this measure and define \emph{national breakthrough potential} to
 %measures the concentration of routing paths into and out of a country. 
 %\Ben[inline]{These definitions are important. They need to be a concise and clear definitions. I don't think it's right yet, but we are close}
@@ -92,13 +94,17 @@ we can ask how the AS-level topology has changed over time with respect
 to national boundaries. 
 
 We developed a
+<<<<<<< HEAD
+suite of tools, called BGP Simulation, Analysis, and Storage (\toolname{}), for studying national 
+=======
 suite of tools, called [blinded for peer review] (\toolname{}), for studying national 
+>>>>>>> 70d6feff2772b4edee9f148befae5d85ed54852c
 chokepoints on
 the AS graph efficiently. To illustrate these ideas and tools, we
-study how national chokepoint potential correlates with two independent
-measures of civil liberty, finding that a significant relationship exists between national chokepoint potential and each measure.
+study how NCP correlates with two independent
+measures of civil liberty, finding that a significant relationship exists between NCP and each measure.
 The paper extends earlier research on AS topology in several ways: it introduces chokepoint potential, it presents open-source cross-platform tools and datasetes for simulating Border Gateway Protocol (BGP) paths,
-determining national chokepoint potential, and analyzing changes over time.  In addition, we report and analyze data for several countries of interest.
+determining NCP, and analyzing changes over time.  In addition, we report and analyze data for several countries of interest.
 %Our measure of border ASes, chokepoint potential, defined in detail
 %in section 3, is a succinct way to estimate the important properties of
 %border ASes related to the ability of a nation to censor and surveil, and our aggregate extension of this measure to
@@ -135,17 +141,17 @@ Specifically, the main contributions of the paper are:
  aggregate measure of national chokepoint potential, motivated as a way to measure the extent to which AS topology reflects national boundaries.
 
  \item A study of how national AS-level chokepoints have changed over the past nine years, demonstrating that the Internet has evolved to facilitate stronger
- AS-level chokepoints for some countries and lead to more open flow of information across borders for others.
+ AS-level chokepoints for some countries and led to the more open flow of information across borders for others.
  \item An open-source tool, \toolname{}, and datasets for simulating BGP paths and evaluating chokepoints efficiently at different time points for the entire Internet.  
- \item A study that reveals a significant relationship between chokepointpotential and Internet freedom, as measured by two qualitative sources.  This result suggests that chokepoint potential can be interpreted as an indicator of a country's capability for conducting censorship or surveillance of its international Internet traffic.
+ \item A study showing a significant relationship between chokepoint potential and Internet freedom, as measured by two qualitative sources.  This result suggests that chokepoint potential can be interpreted as an indicator of a country's capability for conducting censorship or surveillance of its international Internet traffic.
 \end{enumerate}
 
 
 % Rest of Paper Layout
 \par
-The layout of the rest of this paper is as follows: Section 2 provides relavent background information
-to the problems we are investigating; Section 3 introduces and defines the measures of chokepoint
-potential and national chokepoint potential; Section 4 details our tool for simulating and evaluating 
-AS topologies \toolname{}; Section 5
-explains our experimental setups; Sections 6, 7, and 8 provide results, discussion, and related work
-respectively.
+The remainder of the paper is organized as follows: Section II provides relevent background for
+the problems we are investigating; Section III introduces and defines the measures of chokepoint
+potential and national chokepoint potential; Section IV describes \toolname{} for simulating and evaluating 
+BGP networks; Section V
+explains the experimental setup and data sources; Sections VI, VII, and VIII contain experimental results, related work, and discussion,
+respectively.  Section IX concludes the paper.
